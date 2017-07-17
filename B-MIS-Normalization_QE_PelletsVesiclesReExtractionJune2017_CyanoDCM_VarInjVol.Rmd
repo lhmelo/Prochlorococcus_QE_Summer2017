@@ -5,7 +5,7 @@ date: "Feb 9, 2017"
 output: html_document
 ---
 
-#Downloaded from Ingalls Lab github 7/10/2017.  Requires Sample.Key.  Adjusts for variable injection volumes in pooled samples.
+#Downloaded from Ingalls Lab github 7/10/2017. Builds Sample.Key internally.  Adjusts for variable injection volumes in pooled samples. Adjusts standards in cell pellets to be equivalent to those in vesicles, since standards protocol changed in between the time each set of samples was extracted.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -384,7 +384,7 @@ dat <- read.csv(paste(Fraction, "dat.temp.csv", sep=""), row.names = 1)
 ```
 
 
-
+#Rebuilt this last chunk from older TQS BMIS script.  Takes hours to run for untargeted data (let run overnight)
 ```{r}
 models <- rsd.total %>% ungroup %>%
      select(MassFeature,

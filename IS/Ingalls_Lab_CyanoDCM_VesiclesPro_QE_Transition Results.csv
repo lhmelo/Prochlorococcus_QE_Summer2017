@@ -1,0 +1,106 @@
+Protein Name,Replicate Name,Precursor Ion Name,Retention Time,Area,Background,Height,Mass Error PPM,Protein
+Internal Standard,1700606_Blk_1a-DCM,Heavy Archiodonic Acid,11.92,792583,0,180736,0.5,Internal Standard
+Internal Standard,1700606_Blk_1b-DCM,Heavy Archiodonic Acid,11.92,1299974,0,285838,1,Internal Standard
+Internal Standard,1700606_Blk_1c-DCM,Heavy Archiodonic Acid,11.92,1554579,16758,346674,0.7,Internal Standard
+Internal Standard,1700606_Blk_2a-DCM,Heavy Archiodonic Acid,11.92,670580,1210,165852,1.1,Internal Standard
+Internal Standard,1700606_Blk_2b-DCM,Heavy Archiodonic Acid,11.92,1245988,0,285572,0.3,Internal Standard
+Internal Standard,1700606_Blk_2c-DCM,Heavy Archiodonic Acid,11.92,1689457,0,336779,0.6,Internal Standard
+Internal Standard,170606_Blk_ProcessBlk_DCM1,Heavy Archiodonic Acid,11.92,7902971,0,1545153,-0.4,Internal Standard
+Internal Standard,170606_Blk_ProcessBlk_DCM2,Heavy Archiodonic Acid,11.92,8311788,64486,1533853,-0.6,Internal Standard
+Internal Standard,170606_Blk_ProcessBlk_DCM3,Heavy Archiodonic Acid,11.92,7143950,130868,1315453,-0.3,Internal Standard
+Internal Standard,170606_Poo_Pro_Full1-DCM,Heavy Archiodonic Acid,11.93,8995397,0,1880346,-0.4,Internal Standard
+Internal Standard,170606_Poo_Pro_Full2-DCM,Heavy Archiodonic Acid,11.92,15481501,40423,3422197,-0.9,Internal Standard
+Internal Standard,170606_Poo_Pro_Full3-DCM,Heavy Archiodonic Acid,11.93,21386030,263139,4855182,-1.2,Internal Standard
+Internal Standard,170606_Poo_Pro_Half1-DCM,Heavy Archiodonic Acid,11.92,5444714,0,1083472,-0.4,Internal Standard
+Internal Standard,170606_Poo_Pro_Half2-DCM,Heavy Archiodonic Acid,11.92,9683351,0,1915091,-0.1,Internal Standard
+Internal Standard,170606_Poo_Pro_Half3-DCM,Heavy Archiodonic Acid,11.92,13025702,53759,2765089,-0.6,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Full1-DCM,Heavy Archiodonic Acid,11.9,398144,0,113153,-1.3,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Full2-DCM,Heavy Archiodonic Acid,11.91,576381,0,150852,-1.2,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Full3-DCM,Heavy Archiodonic Acid,11.9,611974,0,179810,-1.2,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Half1-DCM,Heavy Archiodonic Acid,11.91,285592,0,97864,-1.2,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Half2-DCM,Heavy Archiodonic Acid,11.9,1069237,0,314368,-1.7,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Half3-DCM,Heavy Archiodonic Acid,11.9,1338102,0,387415,-1.7,Internal Standard
+Internal Standard,170606_Smp_Pro9312_A-DCM,Heavy Archiodonic Acid,11.91,5986356,0,1237957,-0.6,Internal Standard
+Internal Standard,170606_Smp_Pro9312_B-DCM,Heavy Archiodonic Acid,11.91,8910331,0,1864847,0.1,Internal Standard
+Internal Standard,170606_Smp_Pro9312_C-DCM,Heavy Archiodonic Acid,11.91,6244634,0,1271437,-0.8,Internal Standard
+Internal Standard,170606_Smp_Pro9313_A-DCM,Heavy Archiodonic Acid,11.92,10267744,235143,2269150,-0.8,Internal Standard
+Internal Standard,170606_Smp_Pro9313_B-DCM,Heavy Archiodonic Acid,11.92,12032561,0,2258803,-0.3,Internal Standard
+Internal Standard,170606_Smp_Pro9313_C-DCM,Heavy Archiodonic Acid,11.93,13992684,216761,2817924,-0.6,Internal Standard
+Internal Standard,170606_Smp_Vesicle9312_1-DCM,Heavy Archiodonic Acid,11.91,132842,0,52660,-1.4,Internal Standard
+Internal Standard,170606_Smp_Vesicle9312_2-DCM,Heavy Archiodonic Acid,11.91,596757,0,129321,-0.8,Internal Standard
+Internal Standard,170606_Smp_Vesicle9312_3-DCM,Heavy Archiodonic Acid,11.9,473762,0,112224,-0.6,Internal Standard
+Internal Standard,170606_Smp_Vesicle9313_1-DCM,Heavy Archiodonic Acid,11.91,288762,0,128238,-1.5,Internal Standard
+Internal Standard,170606_Smp_Vesicle9313_2-DCM,Heavy Archiodonic Acid,11.91,254339,0,105348,-1.4,Internal Standard
+Internal Standard,170606_Smp_Vesicle9313_3-DCM,Heavy Archiodonic Acid,11.91,457169,0,152271,-1.3,Internal Standard
+Internal Standard,170606_Std_250nMStdsInDCM-Matrix_1,Heavy Archiodonic Acid,11.92,12866309,0,2619979,-0.9,Internal Standard
+Internal Standard,170606_Std_250nMStdsInDCM-Matrix_2,Heavy Archiodonic Acid,11.91,14310655,205511,2853861,-0.7,Internal Standard
+Internal Standard,1700606_Blk_1a-DCM,Heavy Phenylalanine,0.8,23235808,0,17180568,-0.1,Internal Standard
+Internal Standard,1700606_Blk_1b-DCM,Heavy Phenylalanine,0.79,21661574,0,17309098,-0.1,Internal Standard
+Internal Standard,1700606_Blk_1c-DCM,Heavy Phenylalanine,0.79,19783922,0,12712064,-0.1,Internal Standard
+Internal Standard,1700606_Blk_2a-DCM,Heavy Phenylalanine,0.8,23694486,0,19094262,-0.2,Internal Standard
+Internal Standard,1700606_Blk_2b-DCM,Heavy Phenylalanine,0.8,21686830,0,16809970,-0.4,Internal Standard
+Internal Standard,1700606_Blk_2c-DCM,Heavy Phenylalanine,0.79,21068380,0,16782522,-0.6,Internal Standard
+Internal Standard,170606_Blk_ProcessBlk_DCM1,Heavy Phenylalanine,0.8,34654576,0,23707946,-0.4,Internal Standard
+Internal Standard,170606_Blk_ProcessBlk_DCM2,Heavy Phenylalanine,0.8,33585012,0,26482168,-0.4,Internal Standard
+Internal Standard,170606_Blk_ProcessBlk_DCM3,Heavy Phenylalanine,0.79,32770238,0,21439912,-0.2,Internal Standard
+Internal Standard,170606_Poo_Pro_Full1-DCM,Heavy Phenylalanine,0.81,25811012,0,20613568,0.4,Internal Standard
+Internal Standard,170606_Poo_Pro_Full2-DCM,Heavy Phenylalanine,0.8,24845098,0,19714786,0,Internal Standard
+Internal Standard,170606_Poo_Pro_Full3-DCM,Heavy Phenylalanine,0.8,25767286,0,19474640,-0.1,Internal Standard
+Internal Standard,170606_Poo_Pro_Half1-DCM,Heavy Phenylalanine,0.8,18540500,0,14150413,-0.4,Internal Standard
+Internal Standard,170606_Poo_Pro_Half2-DCM,Heavy Phenylalanine,0.8,16328328,0,12996329,0.2,Internal Standard
+Internal Standard,170606_Poo_Pro_Half3-DCM,Heavy Phenylalanine,0.79,14175439,0,10280827,0.1,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Full1-DCM,Heavy Phenylalanine,0.8,22522276,0,16884402,-0.4,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Full2-DCM,Heavy Phenylalanine,0.8,21787736,0,17163564,0,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Full3-DCM,Heavy Phenylalanine,0.8,21529564,0,16786940,-0.1,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Half1-DCM,Heavy Phenylalanine,0.8,13985086,0,10505957,-0.5,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Half2-DCM,Heavy Phenylalanine,0.79,46206436,0,36030436,-0.1,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Half3-DCM,Heavy Phenylalanine,0.8,46297884,0,34543380,-0.3,Internal Standard
+Internal Standard,170606_Smp_Pro9312_A-DCM,Heavy Phenylalanine,0.8,34299468,0,25548860,-0.6,Internal Standard
+Internal Standard,170606_Smp_Pro9312_B-DCM,Heavy Phenylalanine,0.8,30113170,0,23351678,0.3,Internal Standard
+Internal Standard,170606_Smp_Pro9312_C-DCM,Heavy Phenylalanine,0.8,31755376,0,23537188,-0.8,Internal Standard
+Internal Standard,170606_Smp_Pro9313_A-DCM,Heavy Phenylalanine,0.8,32325156,0,23859162,-0.4,Internal Standard
+Internal Standard,170606_Smp_Pro9313_B-DCM,Heavy Phenylalanine,0.8,28045686,0,21319626,0.5,Internal Standard
+Internal Standard,170606_Smp_Pro9313_C-DCM,Heavy Phenylalanine,0.8,29769464,0,20561608,0.2,Internal Standard
+Internal Standard,170606_Smp_Vesicle9312_1-DCM,Heavy Phenylalanine,0.82,27138268,0,16482965,0,Internal Standard
+Internal Standard,170606_Smp_Vesicle9312_2-DCM,Heavy Phenylalanine,0.8,22657786,0,15420332,-0.3,Internal Standard
+Internal Standard,170606_Smp_Vesicle9312_3-DCM,Heavy Phenylalanine,0.81,25758088,0,16953754,-0.2,Internal Standard
+Internal Standard,170606_Smp_Vesicle9313_1-DCM,Heavy Phenylalanine,0.8,23088250,0,15914682,-0.1,Internal Standard
+Internal Standard,170606_Smp_Vesicle9313_2-DCM,Heavy Phenylalanine,0.81,21374154,0,14236752,-0.2,Internal Standard
+Internal Standard,170606_Smp_Vesicle9313_3-DCM,Heavy Phenylalanine,0.8,23325348,0,16867954,-0.3,Internal Standard
+Internal Standard,170606_Std_250nMStdsInDCM-Matrix_1,Heavy Phenylalanine,0.8,23581098,0,14004287,-0.2,Internal Standard
+Internal Standard,170606_Std_250nMStdsInDCM-Matrix_2,Heavy Phenylalanine,0.8,15525941,0,10704654,-0.1,Internal Standard
+Internal Standard,1700606_Blk_1a-DCM,Heavy B2,4.23,5655520,342781,1135109,-0.1,Internal Standard
+Internal Standard,1700606_Blk_1b-DCM,Heavy B2,4.23,4799359,343491,1086276,0.4,Internal Standard
+Internal Standard,1700606_Blk_1c-DCM,Heavy B2,4.23,4334203,84982,1006740,0.3,Internal Standard
+Internal Standard,1700606_Blk_2a-DCM,Heavy B2,4.23,5666208,415901,1269696,0.4,Internal Standard
+Internal Standard,1700606_Blk_2b-DCM,Heavy B2,4.24,4782118,251208,1123777,0.2,Internal Standard
+Internal Standard,1700606_Blk_2c-DCM,Heavy B2,4.23,4205845,161316,1042747,0.1,Internal Standard
+Internal Standard,170606_Blk_ProcessBlk_DCM1,Heavy B2,4.23,8230164,462062,1695883,-0.2,Internal Standard
+Internal Standard,170606_Blk_ProcessBlk_DCM2,Heavy B2,4.22,7586044,623264,1689179,-0.1,Internal Standard
+Internal Standard,170606_Blk_ProcessBlk_DCM3,Heavy B2,4.22,6940227,364378,1503746,0,Internal Standard
+Internal Standard,170606_Poo_Pro_Full1-DCM,Heavy B2,4.23,6788622,291512,1251302,0.5,Internal Standard
+Internal Standard,170606_Poo_Pro_Full2-DCM,Heavy B2,4.23,6136089,311685,1333683,0.5,Internal Standard
+Internal Standard,170606_Poo_Pro_Full3-DCM,Heavy B2,4.23,5409677,281917,1219979,0.1,Internal Standard
+Internal Standard,170606_Poo_Pro_Half1-DCM,Heavy B2,4.22,3964901,79326,838705,0,Internal Standard
+Internal Standard,170606_Poo_Pro_Half2-DCM,Heavy B2,4.23,3038022,35636,694701,0.5,Internal Standard
+Internal Standard,170606_Poo_Pro_Half3-DCM,Heavy B2,4.23,2622354,177775,646864,0.3,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Full1-DCM,Heavy B2,4.22,5451781,373672,1215167,0.2,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Full2-DCM,Heavy B2,4.22,5341058,316737,1211052,0,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Full3-DCM,Heavy B2,4.22,5055461,227507,1109256,0.2,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Half1-DCM,Heavy B2,4.23,2788847,122808,605960,-0.1,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Half2-DCM,Heavy B2,4.22,9788416,1064860,2199922,0,Internal Standard
+Internal Standard,170606_Poo_Vesicles_Half3-DCM,Heavy B2,4.23,10250888,246498,2179601,0.1,Internal Standard
+Internal Standard,170606_Smp_Pro9312_A-DCM,Heavy B2,4.23,8288755,294377,1709438,-0.2,Internal Standard
+Internal Standard,170606_Smp_Pro9312_B-DCM,Heavy B2,4.23,6585954,523836,1418650,0.6,Internal Standard
+Internal Standard,170606_Smp_Pro9312_C-DCM,Heavy B2,4.23,7877253,325188,1590217,-0.5,Internal Standard
+Internal Standard,170606_Smp_Pro9313_A-DCM,Heavy B2,4.22,7917686,421913,1670739,0,Internal Standard
+Internal Standard,170606_Smp_Pro9313_B-DCM,Heavy B2,4.23,6852100,108800,1415036,0.8,Internal Standard
+Internal Standard,170606_Smp_Pro9313_C-DCM,Heavy B2,4.23,6096270,253080,1468183,0.5,Internal Standard
+Internal Standard,170606_Smp_Vesicle9312_1-DCM,Heavy B2,4.23,18688602,1853195,2197467,0.3,Internal Standard
+Internal Standard,170606_Smp_Vesicle9312_2-DCM,Heavy B2,4.22,8179344,837875,1572412,0,Internal Standard
+Internal Standard,170606_Smp_Vesicle9312_3-DCM,Heavy B2,4.23,7380205,786767,1361321,-0.2,Internal Standard
+Internal Standard,170606_Smp_Vesicle9313_1-DCM,Heavy B2,4.23,7541292,564307,1533456,0.2,Internal Standard
+Internal Standard,170606_Smp_Vesicle9313_2-DCM,Heavy B2,4.22,8405547,786473,1435986,-0.1,Internal Standard
+Internal Standard,170606_Smp_Vesicle9313_3-DCM,Heavy B2,4.23,6777563,501722,1387657,-0.1,Internal Standard
+Internal Standard,170606_Std_250nMStdsInDCM-Matrix_1,Heavy B2,4.22,6647823,577620,1290915,0,Internal Standard
+Internal Standard,170606_Std_250nMStdsInDCM-Matrix_2,Heavy B2,4.22,6097065,188071,1005585,0.2,Internal Standard

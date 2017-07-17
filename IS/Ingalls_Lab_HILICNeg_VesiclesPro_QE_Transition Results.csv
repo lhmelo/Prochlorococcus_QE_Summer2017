@@ -1,0 +1,325 @@
+Protein Name,Replicate Name,Precursor Ion Name,Retention Time,Area,Background,Height,Mass Error PPM,Protein
+Internal Standard,170601_Blk_1a,Heavy Acetyl CoA,11.01,2691791,0,91940,2.3,Internal Standard
+Internal Standard,170601_Blk_1b,Heavy Acetyl CoA,10.67,2397025,0,101587,2.4,Internal Standard
+Internal Standard,170601_Blk_1c,Heavy Acetyl CoA,10.7,2507867,0,113761,2.5,Internal Standard
+Internal Standard,170601_Blk_2a,Heavy Acetyl CoA,10.75,1696480,0,123479,2.6,Internal Standard
+Internal Standard,170601_Blk_2b,Heavy Acetyl CoA,10.8,1667679,0,151513,2.2,Internal Standard
+Internal Standard,170601_Blk_2c,Heavy Acetyl CoA,10.77,1825447,0,162223,2.4,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_1,Heavy Acetyl CoA,11.39,4637581,0,97251,2,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_2,Heavy Acetyl CoA,11.57,4776600,0,101259,1.8,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_3,Heavy Acetyl CoA,11.58,5209969,0,99011,2.1,Internal Standard
+Internal Standard,170601_Poo_Pro_Full1,Heavy Acetyl CoA,11.16,4040544,0,101527,1.9,Internal Standard
+Internal Standard,170601_Poo_Pro_Full2,Heavy Acetyl CoA,11.21,4226252,0,111555,1.5,Internal Standard
+Internal Standard,170601_Poo_Pro_Full3,Heavy Acetyl CoA,11.29,4021012,0,110904,1.5,Internal Standard
+Internal Standard,170601_Poo_Pro_Half1,Heavy Acetyl CoA,11.73,1334152,0,53529,1.5,Internal Standard
+Internal Standard,170601_Poo_Pro_Half2,Heavy Acetyl CoA,11.05,1509138,0,62432,1.5,Internal Standard
+Internal Standard,170601_Poo_Pro_Half3,Heavy Acetyl CoA,11.13,1686085,0,76854,1.7,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full1,Heavy Acetyl CoA,10.59,2643011,0,161709,2.8,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full2,Heavy Acetyl CoA,10.53,2798380,0,171442,2.4,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full3,Heavy Acetyl CoA,10.53,2748588,0,166821,2.1,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half1,Heavy Acetyl CoA,10.54,1015656,0,64970,2.7,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half2,Heavy Acetyl CoA,10.41,1140046,0,73342,2.1,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half3,Heavy Acetyl CoA,10.49,1149561,0,69212,2.5,Internal Standard
+Internal Standard,170601_Smp_Pro9312_A,Heavy Acetyl CoA,11.76,3904763,0,85628,1.5,Internal Standard
+Internal Standard,170601_Smp_Pro9312_B,Heavy Acetyl CoA,11.23,4353845,0,141888,2.1,Internal Standard
+Internal Standard,170601_Smp_Pro9312_C,Heavy Acetyl CoA,11.21,3562544,0,85024,1.8,Internal Standard
+Internal Standard,170601_Smp_Pro9313_A,Heavy Acetyl CoA,11.29,4727912,0,116822,1.8,Internal Standard
+Internal Standard,170601_Smp_Pro9313_B,Heavy Acetyl CoA,11.22,4663995,0,94681,1.7,Internal Standard
+Internal Standard,170601_Smp_Pro9313_C,Heavy Acetyl CoA,11.16,3994583,0,100812,1.9,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_1,Heavy Acetyl CoA,10.62,2667321,0,185115,2.9,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_2,Heavy Acetyl CoA,10.62,2308783,0,154043,1.9,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_3,Heavy Acetyl CoA,10.53,2844037,0,160274,2.3,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_1,Heavy Acetyl CoA,10.59,2915455,0,224863,2.7,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_2,Heavy Acetyl CoA,10.56,2643275,0,153035,2.2,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_3,Heavy Acetyl CoA,10.56,2524595,0,148742,2.7,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_1,Heavy Acetyl CoA,11.01,11636559,0,217887,-2.9,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_2,Heavy Acetyl CoA,10.62,13906422,0,220468,-3.2,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_3,Heavy Acetyl CoA,10.09,16951008,0,268066,-3,Internal Standard
+Internal Standard,170601_Blk_1a,Heavy Sulfoacetic Acid,13.39,69086952,0,6124611,-6.9,Internal Standard
+Internal Standard,170601_Blk_1b,Heavy Sulfoacetic Acid,13.39,71162752,0,6373440,-7.1,Internal Standard
+Internal Standard,170601_Blk_1c,Heavy Sulfoacetic Acid,13.37,70906712,0,6231872,-7,Internal Standard
+Internal Standard,170601_Blk_2a,Heavy Sulfoacetic Acid,13.42,68717920,0,6374716,-7,Internal Standard
+Internal Standard,170601_Blk_2b,Heavy Sulfoacetic Acid,13.44,72845864,0,6995194,-7,Internal Standard
+Internal Standard,170601_Blk_2c,Heavy Sulfoacetic Acid,13.42,74590048,0,7251294,-6.9,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_1,Heavy Sulfoacetic Acid,13.47,31664914,0,2336942,-7.1,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_2,Heavy Sulfoacetic Acid,13.44,32859932,152862,2372828,-7,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_3,Heavy Sulfoacetic Acid,13.3,20058026,573027,1472082,-6.9,Internal Standard
+Internal Standard,170601_Poo_Pro_Full1,Heavy Sulfoacetic Acid,13.41,70375968,0,16639157,-6.4,Internal Standard
+Internal Standard,170601_Poo_Pro_Full2,Heavy Sulfoacetic Acid,13.41,61475352,1213234,14493804,-6.8,Internal Standard
+Internal Standard,170601_Poo_Pro_Full3,Heavy Sulfoacetic Acid,13.41,64077408,1149254,14617261,-7,Internal Standard
+Internal Standard,170601_Poo_Pro_Half1,Heavy Sulfoacetic Acid,13.49,34231840,0,7385803,-7,Internal Standard
+Internal Standard,170601_Poo_Pro_Half2,Heavy Sulfoacetic Acid,13.45,33359778,0,8064865,-6.6,Internal Standard
+Internal Standard,170601_Poo_Pro_Half3,Heavy Sulfoacetic Acid,13.44,33072336,0,8878555,-7,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full1,Heavy Sulfoacetic Acid,13.31,69655368,82151,6727716,-6.8,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full2,Heavy Sulfoacetic Acid,13.23,73326232,0,6555161,-6.6,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full3,Heavy Sulfoacetic Acid,13.23,75044296,0,6860490,-6.9,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half1,Heavy Sulfoacetic Acid,13.28,39313212,0,3527890,-7,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half2,Heavy Sulfoacetic Acid,13.17,39522932,0,3523526,-6.6,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half3,Heavy Sulfoacetic Acid,13.17,40862708,0,3764278,-6.8,Internal Standard
+Internal Standard,170601_Smp_Pro9312_A,Heavy Sulfoacetic Acid,13.44,72542576,0,16577314,-7.2,Internal Standard
+Internal Standard,170601_Smp_Pro9312_B,Heavy Sulfoacetic Acid,13.43,67095156,329871,15377214,-6.4,Internal Standard
+Internal Standard,170601_Smp_Pro9312_C,Heavy Sulfoacetic Acid,13.44,65705344,0,15224866,-6.6,Internal Standard
+Internal Standard,170601_Smp_Pro9313_A,Heavy Sulfoacetic Acid,13.43,64813656,0,14855679,-6.6,Internal Standard
+Internal Standard,170601_Smp_Pro9313_B,Heavy Sulfoacetic Acid,13.43,61138976,0,14370981,-6.8,Internal Standard
+Internal Standard,170601_Smp_Pro9313_C,Heavy Sulfoacetic Acid,13.42,61088612,0,14612919,-6.8,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_1,Heavy Sulfoacetic Acid,13.34,71050576,589966,6844540,-6.6,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_2,Heavy Sulfoacetic Acid,13.31,70564088,0,7039151,-7.1,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_3,Heavy Sulfoacetic Acid,13.26,74311864,0,6530501,-7,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_1,Heavy Sulfoacetic Acid,13.31,66151108,170177,6175608,-6.6,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_2,Heavy Sulfoacetic Acid,13.25,69000688,0,6022667,-7.2,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_3,Heavy Sulfoacetic Acid,13.33,67542112,0,6370479,-6.7,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_1,Heavy Sulfoacetic Acid,13.65,8583283,0,1041687,-6.5,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_2,Heavy Sulfoacetic Acid,13.41,10907997,0,1051958,-6.7,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_3,Heavy Sulfoacetic Acid,12.99,10411137,0,726843,-6.5,Internal Standard
+Internal Standard,170601_Blk_1a,Heavy Succinic Acid,11.76,73046744,0,5192801,-8.7,Internal Standard
+Internal Standard,170601_Blk_1b,Heavy Succinic Acid,11.77,92710000,0,5043868,-8.8,Internal Standard
+Internal Standard,170601_Blk_1c,Heavy Succinic Acid,11.74,73087792,2008435,5019292,-7.7,Internal Standard
+Internal Standard,170601_Blk_2a,Heavy Succinic Acid,11.84,107979744,236287,6531402,-8.8,Internal Standard
+Internal Standard,170601_Blk_2b,Heavy Succinic Acid,11.84,114183296,2631908,7345341,-8.9,Internal Standard
+Internal Standard,170601_Blk_2c,Heavy Succinic Acid,11.82,109111984,2700594,7035808,-8.6,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_1,Heavy Succinic Acid,11.92,17605322,0,5495378,-5.4,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_2,Heavy Succinic Acid,11.74,15171648,0,4081397,-4.6,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_3,Heavy Succinic Acid,11.63,65985540,0,7115428,-5.5,Internal Standard
+Internal Standard,170601_Poo_Pro_Full1,Heavy Succinic Acid,11.79,148882016,1877747,11940413,-8.6,Internal Standard
+Internal Standard,170601_Poo_Pro_Full2,Heavy Succinic Acid,11.82,125770696,117890,10408620,-8.6,Internal Standard
+Internal Standard,170601_Poo_Pro_Full3,Heavy Succinic Acid,11.82,114465760,0,10175873,-8.9,Internal Standard
+Internal Standard,170601_Poo_Pro_Half1,Heavy Succinic Acid,11.84,42405560,0,6676024,-8.5,Internal Standard
+Internal Standard,170601_Poo_Pro_Half2,Heavy Succinic Acid,11.76,70769200,342758,5397900,-8.9,Internal Standard
+Internal Standard,170601_Poo_Pro_Half3,Heavy Succinic Acid,11.86,17349872,0,2971244,-8.7,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full1,Heavy Succinic Acid,11.68,109360000,2481175,4979002,-8.6,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full2,Heavy Succinic Acid,11.57,122155144,0,5674420,-8.6,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full3,Heavy Succinic Acid,11.53,110370528,1458009,4921093,-8.8,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half1,Heavy Succinic Acid,11.58,36375812,0,2246574,-8.7,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half2,Heavy Succinic Acid,11.44,54678844,0,2494182,-8.8,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half3,Heavy Succinic Acid,11.5,57449436,115112,2778963,-8.7,Internal Standard
+Internal Standard,170601_Smp_Pro9312_A,Heavy Succinic Acid,11.9,27947742,0,5735439,-8.2,Internal Standard
+Internal Standard,170601_Smp_Pro9312_B,Heavy Succinic Acid,11.8,113522192,231634,10041664,-8.3,Internal Standard
+Internal Standard,170601_Smp_Pro9312_C,Heavy Succinic Acid,11.86,99062296,0,10874352,-8.7,Internal Standard
+Internal Standard,170601_Smp_Pro9313_A,Heavy Succinic Acid,11.84,77207984,0,9790784,-7.1,Internal Standard
+Internal Standard,170601_Smp_Pro9313_B,Heavy Succinic Acid,11.84,122232552,0,10064283,-8.9,Internal Standard
+Internal Standard,170601_Smp_Pro9313_C,Heavy Succinic Acid,11.83,122733136,197236,9922468,-8.6,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_1,Heavy Succinic Acid,11.71,109144928,1468078,5698671,-8.6,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_2,Heavy Succinic Acid,11.69,103263664,0,5386316,-8.8,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_3,Heavy Succinic Acid,11.55,108545472,0,4731202,-8.7,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_1,Heavy Succinic Acid,11.68,110511576,0,5491970,-8.6,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_2,Heavy Succinic Acid,11.6,103340416,0,4564948,-8.7,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_3,Heavy Succinic Acid,11.68,102417648,0,5214617,-8.5,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_1,Heavy Succinic Acid,11.95,29199160,0,2592965,-8.8,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_2,Heavy Succinic Acid,11.65,14843505,0,1637701,-6.7,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_3,Heavy Succinic Acid,11.21,44950116,0,2396766,-8.5,Internal Standard
+Internal Standard,170601_Blk_1a,Heavy Cysteic Acid,11.74,13640531,0,888675,-3.9,Internal Standard
+Internal Standard,170601_Blk_1b,Heavy Cysteic Acid,11.73,13637039,0,822678,-4.1,Internal Standard
+Internal Standard,170601_Blk_1c,Heavy Cysteic Acid,11.65,14025218,0,904849,-4.3,Internal Standard
+Internal Standard,170601_Blk_2a,Heavy Cysteic Acid,11.9,12506710,18338,1079669,-4.1,Internal Standard
+Internal Standard,170601_Blk_2b,Heavy Cysteic Acid,11.88,12653084,0,1109254,-4.2,Internal Standard
+Internal Standard,170601_Blk_2c,Heavy Cysteic Acid,11.84,12710241,0,1066471,-3.8,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_1,Heavy Cysteic Acid,11.71,11409557,0,719220,-4.6,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_2,Heavy Cysteic Acid,11.71,10865171,0,717689,-4.4,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_3,Heavy Cysteic Acid,11.45,10881272,68738,573182,-4.4,Internal Standard
+Internal Standard,170601_Poo_Pro_Full1,Heavy Cysteic Acid,11.71,11330138,0,908340,-4.3,Internal Standard
+Internal Standard,170601_Poo_Pro_Full2,Heavy Cysteic Acid,11.71,11657722,0,800941,-4.5,Internal Standard
+Internal Standard,170601_Poo_Pro_Full3,Heavy Cysteic Acid,11.74,11688559,0,753617,-4.6,Internal Standard
+Internal Standard,170601_Poo_Pro_Half1,Heavy Cysteic Acid,11.71,5544891,0,491596,-4.7,Internal Standard
+Internal Standard,170601_Poo_Pro_Half2,Heavy Cysteic Acid,11.62,6170780,0,444556,-4.4,Internal Standard
+Internal Standard,170601_Poo_Pro_Half3,Heavy Cysteic Acid,11.63,6209554,0,468282,-4.6,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full1,Heavy Cysteic Acid,11.58,13892862,0,831957,-3.9,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full2,Heavy Cysteic Acid,11.44,14532076,0,796255,-3.9,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full3,Heavy Cysteic Acid,11.44,14011485,32652,795460,-4.1,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half1,Heavy Cysteic Acid,11.5,6816166,0,453740,-4,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half2,Heavy Cysteic Acid,11.31,7306284,0,517714,-4.2,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half3,Heavy Cysteic Acid,11.34,7699979,0,532121,-4.1,Internal Standard
+Internal Standard,170601_Smp_Pro9312_A,Heavy Cysteic Acid,11.77,11422361,43234,913109,-4.8,Internal Standard
+Internal Standard,170601_Smp_Pro9312_B,Heavy Cysteic Acid,11.72,10767768,0,800804,-4.3,Internal Standard
+Internal Standard,170601_Smp_Pro9312_C,Heavy Cysteic Acid,11.74,12013165,0,1009485,-4.5,Internal Standard
+Internal Standard,170601_Smp_Pro9313_A,Heavy Cysteic Acid,11.76,10238509,0,710572,-4.5,Internal Standard
+Internal Standard,170601_Smp_Pro9313_B,Heavy Cysteic Acid,11.73,10353064,0,848188,-4.4,Internal Standard
+Internal Standard,170601_Smp_Pro9313_C,Heavy Cysteic Acid,11.76,11736859,0,814996,-4.5,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_1,Heavy Cysteic Acid,11.66,13554318,0,848906,-3.7,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_2,Heavy Cysteic Acid,11.65,13415944,0,824346,-4.1,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_3,Heavy Cysteic Acid,11.44,14084871,0,806327,-4,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_1,Heavy Cysteic Acid,11.6,13615993,0,857189,-3.8,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_2,Heavy Cysteic Acid,11.49,13836101,0,788208,-3.9,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_3,Heavy Cysteic Acid,11.63,13160173,55431,824573,-3.7,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_1,Heavy Cysteic Acid,11.89,2382374,0,221929,-4.2,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_2,Heavy Cysteic Acid,11.5,3035628,0,237464,-4.5,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_3,Heavy Cysteic Acid,11.1,4410121,0,303155,-4.2,Internal Standard
+Internal Standard,170601_Blk_1a,Heavy Taurine,10.59,7270324,0,707184,-7.6,Internal Standard
+Internal Standard,170601_Blk_1b,Heavy Taurine,10.57,7031601,0,665384,-7.9,Internal Standard
+Internal Standard,170601_Blk_1c,Heavy Taurine,10.61,6849505,0,648255,-7.9,Internal Standard
+Internal Standard,170601_Blk_2a,Heavy Taurine,10.83,2422285,0,278644,-7.7,Internal Standard
+Internal Standard,170601_Blk_2b,Heavy Taurine,10.8,2446638,0,290016,-7.7,Internal Standard
+Internal Standard,170601_Blk_2c,Heavy Taurine,10.81,2461173,0,278554,-7.6,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_1,Heavy Taurine,9.36,47009792,289826,3117596,-8.3,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_2,Heavy Taurine,9.36,44925340,499537,3037565,-8.3,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_3,Heavy Taurine,8.96,35536364,428744,2285416,-8.3,Internal Standard
+Internal Standard,170601_Poo_Pro_Full1,Heavy Taurine,10.11,19008926,0,1737402,-7.6,Internal Standard
+Internal Standard,170601_Poo_Pro_Full2,Heavy Taurine,10.09,19261670,0,1837120,-7.9,Internal Standard
+Internal Standard,170601_Poo_Pro_Full3,Heavy Taurine,10.11,19571234,73610,1794656,-8.1,Internal Standard
+Internal Standard,170601_Poo_Pro_Half1,Heavy Taurine,9.77,14759445,66823,1287647,-7.7,Internal Standard
+Internal Standard,170601_Poo_Pro_Half2,Heavy Taurine,9.7,15325983,0,1344658,-7.7,Internal Standard
+Internal Standard,170601_Poo_Pro_Half3,Heavy Taurine,9.7,15147204,0,1380773,-8,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full1,Heavy Taurine,10.54,7128370,0,700750,-7.5,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full2,Heavy Taurine,10.54,7478854,0,761848,-7.3,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full3,Heavy Taurine,10.56,7631452,0,720474,-7.6,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half1,Heavy Taurine,10.04,5235107,0,494815,-8.1,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half2,Heavy Taurine,10.03,5865162,0,579769,-7.9,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half3,Heavy Taurine,10,5661741,0,508397,-7.8,Internal Standard
+Internal Standard,170601_Smp_Pro9312_A,Heavy Taurine,10.14,21751470,81512,2139504,-7.9,Internal Standard
+Internal Standard,170601_Smp_Pro9312_B,Heavy Taurine,10.01,21244030,0,1966552,-7.4,Internal Standard
+Internal Standard,170601_Smp_Pro9312_C,Heavy Taurine,10.15,22289672,120383,2174894,-7.6,Internal Standard
+Internal Standard,170601_Smp_Pro9313_A,Heavy Taurine,10.12,15051122,0,1376296,-8,Internal Standard
+Internal Standard,170601_Smp_Pro9313_B,Heavy Taurine,10.14,16425751,59770,1573595,-7.6,Internal Standard
+Internal Standard,170601_Smp_Pro9313_C,Heavy Taurine,10.14,19313978,206901,1801313,-7.6,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_1,Heavy Taurine,10.57,6648554,0,643908,-7.2,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_2,Heavy Taurine,10.61,6587405,13266,687744,-7.8,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_3,Heavy Taurine,10.48,7598514,29409,799820,-7.8,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_1,Heavy Taurine,10.53,6949969,0,687231,-7.4,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_2,Heavy Taurine,10.48,7036273,0,712775,-7.6,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_3,Heavy Taurine,10.51,7297962,0,721203,-7.5,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_1,Heavy Taurine,9.81,6175228,0,508223,-8,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_2,Heavy Taurine,9.18,6996141,0,606998,-8.3,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_3,Heavy Taurine,8.85,7488500,0,572371,-8.2,Internal Standard
+Internal Standard,170601_Blk_1a,Heavy Sulfolactic Acid,12.91,79156384,403967,6505844,-4,Internal Standard
+Internal Standard,170601_Blk_1b,Heavy Sulfolactic Acid,12.89,73590088,312472,6021583,-4.2,Internal Standard
+Internal Standard,170601_Blk_1c,Heavy Sulfolactic Acid,12.86,73153696,554063,5804647,-4.1,Internal Standard
+Internal Standard,170601_Blk_2a,Heavy Sulfolactic Acid,12.97,69155240,316280,6024356,-4.4,Internal Standard
+Internal Standard,170601_Blk_2b,Heavy Sulfolactic Acid,12.97,70510208,214856,6504283,-4.4,Internal Standard
+Internal Standard,170601_Blk_2c,Heavy Sulfolactic Acid,12.96,68871560,383824,6735094,-4.1,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_1,Heavy Sulfolactic Acid,12.99,6988727,0,521832,-4.4,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_2,Heavy Sulfolactic Acid,12.97,6834336,0,543476,-4.3,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_3,Heavy Sulfolactic Acid,12.78,7035868,0,488214,-4.4,Internal Standard
+Internal Standard,170601_Poo_Pro_Full1,Heavy Sulfolactic Acid,12.97,9590118,0,897040,-3.4,Internal Standard
+Internal Standard,170601_Poo_Pro_Full2,Heavy Sulfolactic Acid,12.96,9143803,0,767233,-3.9,Internal Standard
+Internal Standard,170601_Poo_Pro_Full3,Heavy Sulfolactic Acid,12.96,8920365,0,772091,-4,Internal Standard
+Internal Standard,170601_Poo_Pro_Half1,Heavy Sulfolactic Acid,12.96,3990703,0,396772,-4,Internal Standard
+Internal Standard,170601_Poo_Pro_Half2,Heavy Sulfolactic Acid,12.91,4588551,0,389238,-3.7,Internal Standard
+Internal Standard,170601_Poo_Pro_Half3,Heavy Sulfolactic Acid,12.94,4095807,0,343216,-4,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full1,Heavy Sulfolactic Acid,12.83,71114792,759471,5778750,-4,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full2,Heavy Sulfolactic Acid,12.7,74427616,793839,5871435,-3.9,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full3,Heavy Sulfolactic Acid,12.69,74441272,197583,6173107,-4.2,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half1,Heavy Sulfolactic Acid,12.76,35855108,0,3019077,-4.3,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half2,Heavy Sulfolactic Acid,12.64,40718140,0,3190167,-4,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half3,Heavy Sulfolactic Acid,12.61,39392872,75413,3146090,-4,Internal Standard
+Internal Standard,170601_Smp_Pro9312_A,Heavy Sulfolactic Acid,12.99,9263008,0,889112,-4,Internal Standard
+Internal Standard,170601_Smp_Pro9312_B,Heavy Sulfolactic Acid,12.94,7736440,0,704577,-3.5,Internal Standard
+Internal Standard,170601_Smp_Pro9312_C,Heavy Sulfolactic Acid,13.01,8818365,0,863153,-3.9,Internal Standard
+Internal Standard,170601_Smp_Pro9313_A,Heavy Sulfolactic Acid,12.97,9354015,37992,766401,-3.8,Internal Standard
+Internal Standard,170601_Smp_Pro9313_B,Heavy Sulfolactic Acid,12.99,7930789,0,723547,-3.8,Internal Standard
+Internal Standard,170601_Smp_Pro9313_C,Heavy Sulfolactic Acid,12.99,8094297,0,675141,-3.9,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_1,Heavy Sulfolactic Acid,12.85,73313688,574598,6067749,-3.9,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_2,Heavy Sulfolactic Acid,12.81,67279792,680832,5908827,-4.1,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_3,Heavy Sulfolactic Acid,12.72,74053992,0,5684262,-4.2,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_1,Heavy Sulfolactic Acid,12.83,67655624,102339,5653053,-3.8,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_2,Heavy Sulfolactic Acid,12.72,72180712,457735,5793880,-4.3,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_3,Heavy Sulfolactic Acid,12.8,69424880,435180,5750005,-4.2,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_1,Heavy Sulfolactic Acid,13.1,1926335,0,195407,-3.8,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_2,Heavy Sulfolactic Acid,12.83,2419387,0,198308,-4,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_3,Heavy Sulfolactic Acid,12.43,2801117,0,222755,-3.9,Internal Standard
+Internal Standard,170601_Blk_1a,Heavy Isotheonic Acid,4.89,101275784,445873,1732119,-8.1,Internal Standard
+Internal Standard,170601_Blk_1b,Heavy Isotheonic Acid,4.85,55652064,0,837008,-8.1,Internal Standard
+Internal Standard,170601_Blk_1c,Heavy Isotheonic Acid,4.77,55245320,0,839999,-8.5,Internal Standard
+Internal Standard,170601_Blk_2a,Heavy Isotheonic Acid,4.96,41171748,0,600739,-8.3,Internal Standard
+Internal Standard,170601_Blk_2b,Heavy Isotheonic Acid,4.94,43534800,0,687383,-8.3,Internal Standard
+Internal Standard,170601_Blk_2c,Heavy Isotheonic Acid,4.88,50296300,0,779161,-8.1,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_1,Heavy Isotheonic Acid,5.37,96659144,800169,3809955,-8.6,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_2,Heavy Isotheonic Acid,5.47,93258368,604474,3478491,-8.7,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_3,Heavy Isotheonic Acid,4.97,49763512,331911,1991192,-8.4,Internal Standard
+Internal Standard,170601_Poo_Pro_Full1,Heavy Isotheonic Acid,5.25,95176040,0,1943684,-7.8,Internal Standard
+Internal Standard,170601_Poo_Pro_Full2,Heavy Isotheonic Acid,5.23,89831816,0,1648839,-8.2,Internal Standard
+Internal Standard,170601_Poo_Pro_Full3,Heavy Isotheonic Acid,5.16,83585512,0,1562060,-8.3,Internal Standard
+Internal Standard,170601_Poo_Pro_Half1,Heavy Isotheonic Acid,5.34,49290620,0,1060873,-8,Internal Standard
+Internal Standard,170601_Poo_Pro_Half2,Heavy Isotheonic Acid,5.23,53714364,0,1155396,-8,Internal Standard
+Internal Standard,170601_Poo_Pro_Half3,Heavy Isotheonic Acid,5.18,42490792,0,929812,-8.4,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full1,Heavy Isotheonic Acid,4.73,103016264,0,1766263,-7.8,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full2,Heavy Isotheonic Acid,4.59,78693192,0,1188904,-8,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full3,Heavy Isotheonic Acid,4.56,60960924,0,934869,-8,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half1,Heavy Isotheonic Acid,4.73,23384652,0,407530,-8.1,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half2,Heavy Isotheonic Acid,4.57,34602212,0,639235,-8.2,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half3,Heavy Isotheonic Acid,4.59,44772080,0,778423,-7.8,Internal Standard
+Internal Standard,170601_Smp_Pro9312_A,Heavy Isotheonic Acid,5.31,85606784,0,1724425,-8.4,Internal Standard
+Internal Standard,170601_Smp_Pro9312_B,Heavy Isotheonic Acid,5.21,69939304,0,1387422,-8,Internal Standard
+Internal Standard,170601_Smp_Pro9312_C,Heavy Isotheonic Acid,5.18,79974536,0,1498997,-8.2,Internal Standard
+Internal Standard,170601_Smp_Pro9313_A,Heavy Isotheonic Acid,5.1,81202896,0,1481479,-7.9,Internal Standard
+Internal Standard,170601_Smp_Pro9313_B,Heavy Isotheonic Acid,5.33,69793512,0,1399257,-8.1,Internal Standard
+Internal Standard,170601_Smp_Pro9313_C,Heavy Isotheonic Acid,5.09,72684752,0,1294383,-8,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_1,Heavy Isotheonic Acid,4.81,62559116,0,989470,-7.9,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_2,Heavy Isotheonic Acid,4.75,60483556,0,1011618,-7.9,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_3,Heavy Isotheonic Acid,4.59,75100744,0,1139539,-8.2,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_1,Heavy Isotheonic Acid,4.8,65449860,0,1107065,-7.9,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_2,Heavy Isotheonic Acid,4.59,59835488,0,931758,-8,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_3,Heavy Isotheonic Acid,4.78,58367492,0,890044,-8,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_1,Heavy Isotheonic Acid,5.63,10813129,0,267435,-8.4,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_2,Heavy Isotheonic Acid,4.87,9453746,0,247993,-8.3,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_3,Heavy Isotheonic Acid,4.62,10080973,0,227489,-8.2,Internal Standard
+Internal Standard,170601_Blk_1a,Heavy AMP,10.7,10200,0,6009,3.6,Internal Standard
+Internal Standard,170601_Blk_1b,Heavy AMP,6.27,10315,0,7708,1.6,Internal Standard
+Internal Standard,170601_Blk_1c,Heavy AMP,6.21,32421,0,15753,0.1,Internal Standard
+Internal Standard,170601_Blk_2a,Heavy AMP,6.25,84690,0,28251,-1.1,Internal Standard
+Internal Standard,170601_Blk_2b,Heavy AMP,6.17,59958,0,18176,-0.4,Internal Standard
+Internal Standard,170601_Blk_2c,Heavy AMP,6.54,12605,0,7134,-1.2,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_1,Heavy AMP,11.25,71108824,1160602,3410791,1.1,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_2,Heavy AMP,11.26,72547640,777597,3325946,1.3,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_3,Heavy AMP,11.13,76230720,1091246,2867260,1.2,Internal Standard
+Internal Standard,170601_Poo_Pro_Full1,Heavy AMP,11.35,70888240,1321744,2789483,1.7,Internal Standard
+Internal Standard,170601_Poo_Pro_Full2,Heavy AMP,11.39,74484568,195548,2784073,1.4,Internal Standard
+Internal Standard,170601_Poo_Pro_Full3,Heavy AMP,11.39,68796440,1092726,2454867,1.1,Internal Standard
+Internal Standard,170601_Poo_Pro_Half1,Heavy AMP,11.29,37828256,74644,1680289,1.4,Internal Standard
+Internal Standard,170601_Poo_Pro_Half2,Heavy AMP,11.32,38872392,0,1454339,1.5,Internal Standard
+Internal Standard,170601_Poo_Pro_Half3,Heavy AMP,11.37,38081344,0,1456060,1.4,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full1,Heavy AMP,5.84,14659,0,8052,-0.5,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full2,Heavy AMP,5.82,12563,0,12741,-7.1,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full3,Heavy AMP,5.93,27905,0,20748,0.1,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half1,Heavy AMP,6.17,14005,0,8145,-1.2,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half2,Heavy AMP,#N/A,#N/A,#N/A,#N/A,#N/A,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half3,Heavy AMP,#N/A,#N/A,#N/A,#N/A,#N/A,Internal Standard
+Internal Standard,170601_Smp_Pro9312_A,Heavy AMP,11.39,70305592,0,2831551,1.1,Internal Standard
+Internal Standard,170601_Smp_Pro9312_B,Heavy AMP,11.41,70750528,761780,2625525,1.6,Internal Standard
+Internal Standard,170601_Smp_Pro9312_C,Heavy AMP,11.4,65814688,208237,2736416,1.4,Internal Standard
+Internal Standard,170601_Smp_Pro9313_A,Heavy AMP,11.39,65476440,511458,2655785,1.5,Internal Standard
+Internal Standard,170601_Smp_Pro9313_B,Heavy AMP,11.4,64252020,277420,2592205,1.5,Internal Standard
+Internal Standard,170601_Smp_Pro9313_C,Heavy AMP,11.35,71573880,47865,2465435,1.4,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_1,Heavy AMP,19.49,0,0,0,#N/A,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_2,Heavy AMP,5.71,15932,0,13747,1.7,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_3,Heavy AMP,5.69,18176,0,18579,-0.9,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_1,Heavy AMP,6.67,11902,0,9220,-3,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_2,Heavy AMP,10.64,0,0,0,#N/A,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_3,Heavy AMP,6.05,13087,0,8509,0.5,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_1,Heavy AMP,11.45,14392944,118240,750230,1.5,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_2,Heavy AMP,11.24,16701347,0,600246,1.4,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_3,Heavy AMP,10.72,22136506,0,685856,1.3,Internal Standard
+Internal Standard,170601_Blk_1a,Heavy GMP,6.49,26079,0,10513,-0.6,Internal Standard
+Internal Standard,170601_Blk_1b,Heavy GMP,16.67,0,0,0,#N/A,Internal Standard
+Internal Standard,170601_Blk_1c,Heavy GMP,11.07,9824,0,8357,9.6,Internal Standard
+Internal Standard,170601_Blk_2a,Heavy GMP,19.73,0,0,0,#N/A,Internal Standard
+Internal Standard,170601_Blk_2b,Heavy GMP,6.5,13764,0,7839,-3.1,Internal Standard
+Internal Standard,170601_Blk_2c,Heavy GMP,6.05,13425,0,7199,1.9,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_1,Heavy GMP,13.5,12530493,88573,722424,1,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_2,Heavy GMP,13.49,12609625,0,734345,1.1,Internal Standard
+Internal Standard,170601_Blk_ProcessBlk_3,Heavy GMP,13.41,13938627,0,690732,1,Internal Standard
+Internal Standard,170601_Poo_Pro_Full1,Heavy GMP,13.43,1463626,0,235696,1.5,Internal Standard
+Internal Standard,170601_Poo_Pro_Full2,Heavy GMP,13.41,2548069,0,210223,1.1,Internal Standard
+Internal Standard,170601_Poo_Pro_Full3,Heavy GMP,13.43,1760472,0,238073,0.9,Internal Standard
+Internal Standard,170601_Poo_Pro_Half1,Heavy GMP,13.48,3123271,0,305749,0.9,Internal Standard
+Internal Standard,170601_Poo_Pro_Half2,Heavy GMP,13.48,2491678,0,291517,1.1,Internal Standard
+Internal Standard,170601_Poo_Pro_Half3,Heavy GMP,13.46,2227769,0,256619,1,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full1,Heavy GMP,6.11,15962,0,8271,0.1,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full2,Heavy GMP,5.61,0,0,0,#N/A,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Full3,Heavy GMP,6.14,0,0,0,#N/A,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half1,Heavy GMP,10.67,0,0,0,#N/A,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half2,Heavy GMP,5.44,0,0,0,#N/A,Internal Standard
+Internal Standard,170601_Poo_Vesicles_Half3,Heavy GMP,5.97,0,0,0,#N/A,Internal Standard
+Internal Standard,170601_Smp_Pro9312_A,Heavy GMP,13.44,2536600,11346,342389,0.4,Internal Standard
+Internal Standard,170601_Smp_Pro9312_B,Heavy GMP,13.44,2741283,0,307752,1.3,Internal Standard
+Internal Standard,170601_Smp_Pro9312_C,Heavy GMP,13.46,2046454,0,311847,1,Internal Standard
+Internal Standard,170601_Smp_Pro9313_A,Heavy GMP,13.46,1741009,0,256106,1.2,Internal Standard
+Internal Standard,170601_Smp_Pro9313_B,Heavy GMP,13.46,1522439,0,255353,1.1,Internal Standard
+Internal Standard,170601_Smp_Pro9313_C,Heavy GMP,13.45,1349443,0,214123,1.2,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_1,Heavy GMP,5.69,7661,0,0,-0.8,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_2,Heavy GMP,6.09,19597,0,17915,0.3,Internal Standard
+Internal Standard,170601_Smp_Vesicle9312_3,Heavy GMP,5.71,13700,0,14062,10.1,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_1,Heavy GMP,5.98,6477,0,0,-3.9,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_2,Heavy GMP,5.81,0,0,0,#N/A,Internal Standard
+Internal Standard,170601_Smp_Vesicle9313_3,Heavy GMP,11.45,6945,0,6751,-4.9,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_1,Heavy GMP,13.62,2052116,0,164508,1.1,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_2,Heavy GMP,13.43,1640080,0,140056,1,Internal Standard
+Internal Standard,170601_Std_4uMStdsInMatrix_3,Heavy GMP,13.15,2295002,0,223086,1,Internal Standard

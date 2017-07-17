@@ -5,7 +5,7 @@ date: "Feb 9, 2017"
 output: html_document
 ---
 
-#Downloaded from github 7/10/2017.  Requires Sample.Key.  Adjusts for variable injection volumes in pooled samples.
+#Downloaded from Ingalls Lab github 7/10/2017.  Requires Sample.Key.  Adjusts for variable injection volumes in pooled samples.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)

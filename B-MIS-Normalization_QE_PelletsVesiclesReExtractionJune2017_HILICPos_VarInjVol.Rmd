@@ -1,7 +1,7 @@
 ---
-title: "B-MIS Normalization QE PelletsVesicles_ReExtractionJune2017_CyanoDCM_VarInjVol"
-author: "Angie Boysen"
-date: "Feb 9, 2017"
+title: "B-MIS Normalization QE PelletsVesicles_ReExtractionJune2017_HILICPos_VarInjVol"
+author: "Laura Hmelo"
+date: "Nov 27, 2017"
 output: html_document
 ---
 
@@ -30,8 +30,8 @@ library(dplyr)
 ```{r Set experiment and fraction name,  results='hide', message=FALSE, warning=FALSE}
 
 Location <- getwd()
-Fraction <- "CyanoDCM"
-FractionShort <- "CyanoDCM" #HILIC or CyanoAq or CyanoDCM
+Fraction <- "HILICPos"
+FractionShort <- "HILICPos" #HILIC or CyanoAq or CyanoDCM
 ExpDIR <-
 "~/Desktop/MetabolomicsProjects/Prochlorococcus/PelletsVesiclesReExtractionJune2017"
 #ExpDIR <-Location
@@ -52,7 +52,7 @@ Dirs[] <- lapply(Dirs, gsub, pattern = "/Prochlorococcus", replacement = "", fix
 
 
 
-Fraction <- "CyanoDCM"
+Fraction <- "HILICPos"
 ResultsDIR <- as.character(Dirs[Fraction, "ResultsDIR"])
 setwd(ResultsDIR)
 
@@ -70,7 +70,7 @@ ISDir <- "~/Desktop/MetabolomicsProjects/PelletsVesiclesReExtractionJune2017/IS"
 setwd(ISDir)
 
 
-IS.dat <- read_csv("Ingalls_Lab_CyanoDCM_VesiclesPro_QE_Transition Results.csv")
+IS.dat <- read_csv("Ingalls_Lab_HILICPos_VesiclesPro_QE_Transition Results.csv")
 IS.dat <- IS.dat %>%
      select(`Replicate Name`, `Precursor Ion Name`, Area) %>%
      mutate(MassFeature = `Precursor Ion Name`) %>%
@@ -89,7 +89,7 @@ glimpse(IS.dat)
 # 
 # print(xcms.names)
 # 
-allsamples <- xcms.names[grepl("_Smp|_Blk_2|_Blk_1|_ProcessBlk|_Poo|StdsInDCM", xcms.names)]
+allsamples <- xcms.names[grepl("_Smp|_Blk_2|_Blk_1|_ProcessBlk|_Poo|_Std", xcms.names)]
 allsamples <- gsub('X', '', allsamples)
 # IS.dat <- filter(IS.dat, Replicate.Name %in% allsamples)
 # 
@@ -126,6 +126,9 @@ SampKey <- SampKey_build %>%
 #          `Replicate Name` = Sample.Name)
 
 IS.dat <- rbind(IS.dat, SampKey)
+
+IS.dat.plot <- IS.dat %>% 
+  filter(!MassFeature == "Inj_vol")
 ```
 
 
@@ -133,28 +136,54 @@ IS.dat <- rbind(IS.dat, SampKey)
 if things don't look good with some IS make sure to fix them
 or at least not include them as possibilities for normalization
 ```{r, echo=FALSE}
-ggplot(IS.dat, aes(x=`Replicate Name`, y=Area)) + geom_bar(stat="identity") + facet_wrap( ~MassFeature, scales="free_y")+theme(axis.text.x = element_text(angle = 90, hjust = 1,vjust = 0.5), legend.position = "top")  + ggtitle("IS Raw Areas")
+ggplot(IS.dat.plot, aes(x=`Replicate Name`, y=Area)) + geom_bar(stat="identity") + facet_wrap( ~MassFeature, scales="free_y")+theme(axis.text.x = element_text(angle = 90, hjust = 1,vjust = 0.5), legend.position = "top")  + ggtitle("IS Raw Areas")
 ```
 
 ##Edit data so extraction standards are appropriately adjusted in Cell Pellets
 ```{r correctISErrors}
 
  errors <- IS.dat %>%
-      filter(MassFeature=="Heavy Archiodonic Acid") %>%
+      filter(MassFeature=="Heavy Methionine") %>%
       filter(grepl("Pro|Std", `Replicate Name`)) %>%
       mutate(Area2 = Area) %>%
-      mutate(Area = Area/10)
+      mutate(Area= as.numeric(Area)) %>% 
+      mutate(Area = Area/2)
 
-# IS.dat.test <- IS.dat %>% mutate(Area2 = Area)
 
-IS.dat$Area[(IS.dat$MassFeature == "Heavy Archiodonic Acid") & 
+
+IS.dat$Area[(IS.dat$MassFeature == "Heavy Methionine") & 
                     (grepl("Pro|Std", IS.dat$`Replicate Name`))] <- errors$Area
+
+
+ errors <- IS.dat %>%
+      filter(MassFeature=="Heavy Histidine") %>%
+      filter(grepl("Pro|Std", `Replicate Name`)) %>%
+      mutate(Area2 = Area) %>%
+      mutate(Area= as.numeric(Area)) %>% 
+      mutate(Area = Area/5)
+
+
+
+IS.dat$Area[(IS.dat$MassFeature == "Heavy Histidine") & 
+                    (grepl("Pro|Std", IS.dat$`Replicate Name`))] <- errors$Area
+
+IS.dat <- IS.dat %>% 
+  filter(!MassFeature == "Heavy Valine",
+         !MassFeature == "Heavy Proline") %>% 
+  mutate(Area = as.numeric(Area))
+
+IS.dat.plot <- IS.dat %>% 
+  filter(!MassFeature == "Inj_vol")
 
 ```
 ##look at extraction replication- everything better?
 
 ```{r, echo=FALSE}
-ggplot(IS.dat, aes(x=`Replicate Name`, y=Area)) + geom_bar(stat="identity") + facet_wrap( ~MassFeature, scales="free_y")+theme(axis.text.x = element_text(angle = 90, hjust = 1,vjust = 0.5), legend.position = "top")  + ggtitle("IS Raw Areas")
+q <- ggplot(IS.dat.plot, aes(x=`Replicate Name`, y=Area)) + geom_bar(stat="identity") + facet_wrap( ~MassFeature, scales="free_y")+theme(axis.text.x = element_text(angle = 90, hjust = 1,vjust = 0.5), legend.position = "top")  + ggtitle("IS Raw Areas")
+```
+
+```{r}
+print(q)
 ```
 
 ##Get untargeted data into long format
@@ -178,12 +207,14 @@ Date_type_ID_replicate
  uniquenames
 xcms.long <- xcms.long %>%
   mutate(Replicate.Name = Replicate.Name %>%
-           str_replace("Blk_1","Blk_1_")%>%
-           str_replace("Blk_2","Blk_2_") %>%
-            str_replace("_DCM","_")%>%
-           str_replace(".DCM","")%>%
+           str_replace("_Blk_1","_Blk_1_")%>%
+           str_replace("_Blk_2","_Blk_2_") %>%
            str_replace("X1700606","1700606") %>%
            str_replace("X170606","170606"))
+
+xcms.long <- xcms.long %>%
+  mutate(Replicate.Name = Replicate.Name %>%
+           str_replace("1700606", "170606"))
 
  uniquenames<- unique(xcms.long$Replicate.Name)
  uniquenames 
@@ -193,10 +224,14 @@ xcms.long <- xcms.long %>%
 
 IS.dat <- IS.dat %>%
   mutate(Replicate.Name = Replicate.Name %>%
-            str_replace("Blk_1","Blk_1_")%>%
-           str_replace("Blk_2","Blk_2_") %>%
-            str_replace("_DCM","_")%>%
-           str_replace(".DCM",""))
+            str_replace("_Blk_1","_Blk_1_")%>%
+           str_replace("_Blk_2","_Blk_2_") %>% 
+           str_replace("170601", "170606")
+         ) 
+
+IS.dat <- IS.dat %>%
+  mutate(Replicate.Name = Replicate.Name %>%
+            str_replace("1700606", "170606"))
 
 uniquenames<- unique(IS.dat$Replicate.Name)
  uniquenames 
@@ -260,7 +295,7 @@ for (i in 2:length(IS.list)){
      }
 }
 #glimpse(area.norm)
-write_csv(area.norm, "CyanoDCM.area.norm.csv")
+write_csv(area.norm, paste(Fraction, ".area.norm.csv", sep=""))
 ```
 
 
@@ -365,7 +400,7 @@ rsd.total <- rsd.total %>%
 Only keep PooPlus (BMIS model)
 ```{r, echo=FALSE}
 setwd(ExpDIR)
-dat <- read.csv(paste(Fraction, "dat.temp.csv", sep=""), row.names = 1)
+dat <- read.csv(paste(Fraction, "dat.temp.csv", sep="."), row.names = 1)
 # 
 # models <- rsd.total %>% ungroup %>%
 #      select(MassFeature, PooPlus.IS) %>%
@@ -409,7 +444,7 @@ dat.join <- dat.join %>%
   mutate(SmpModel.IS = gsub(' ', '.', SmpModel.IS)) %>%
   mutate(PooPlusModel.IS = gsub(' ', '.', PooPlusModel.IS)) 
 
-startime <- Sys.time()
+starttime <- Sys.time()
 
 PooModel <- c()
 SmpModel <-c()
@@ -442,6 +477,7 @@ dat.join <- dat.join %>% unnest(PooModel) %>% unnest(SmpModel) %>%
 glimpse(dat.join)
 
 endtime <- Sys.time()
+totaltime <- endtime - starttime
 ```
 
 ##Write out that full normalized data

@@ -1,0 +1,92 @@
+---
+title: "Prochlorococcus Vesicles workflow June2017 batch"
+date: December 11, 2017
+output: html_notebook
+---
+
+Pro Vesicles and Cell Pellet data from the QE is converted to mzXML format using msconvert.
+
+Peak picking and alignment is performed, by Fraction (CyanoDCM, CyanoAq, HILICPos, HILICNeg), using XCMS and parameters defined in params.csv, which were optomized using IPO and are refined for each Fraction and each data set.  Parameters used for each analysis are saved in results folder for each fraction as it is processed. The output from xcms is an xset object and a data table named xset.allpeaks which serves as input for next steps.
+
+XCMS was run on data set containing Pellets and Vesicles from strains 9312 and 9313. Pellets were freshly re-extracted in June 2017. They were run along side archived Vesicles.  Standards added to June samples differed in composition and concentration relative to Vesicles extracted in January.  See Internal_Stds_April2017.xlsx for summary of changes between sample extraction efforts.
+
+
+
+Internal standards were independently integrated in skyline and brought into R pipeline as a csv file.
+
+
+PelletsVesiclesALLStrains_June2017Extraction.Rmd
+
+
+<!-- 1. xset.allpeaks may be dereplicated against TargetCompounds.csv, TargetCompoundsWishList.csv. -->
+
+<!-- 2. xset object and raw mzXML files are input for CAMERA which aids in the identification of adducts and ions and provides information which will be used to create hypotheses about mass features which may be related to one another as ions or adducts.  A post-processing script takes the CAMERA output and formats it in a file named "OtherIons.csv" -->
+
+3. xset object is run through mfmaker_VesiclesAndPellets_4Treats.function.R:
+  
+  + It performs basic filtering on xset.allpeaks and removes peaks which elute before 45 seconds or after XX minutes.
+  
+  + It performs a basic blank filter.  Peak areas in samples which are not, in at least one sample treatment, at least twice the area of respective blanks and in remaining sample treatements, within one standard deviation of the blank, are removed from the data frame.
+  
+  + A statistical test is performed (e.g. ttest) and a data.frame containing the top 50 most statistically significant results is generated to be used to generate EICs in QC step.
+  
+<!-- 4. Statisitically significant mass features from 3c above are used to generate EICs for visual inspection of integration quality. -->
+
+5. xset.filtered is B-MIS normalized which produces a data.frame named BMISed_data_Fraction.xset.filtered.csv
+
+    script: B-MIS-Normalization_QE_PelletsVesiclesReExtractionJune2017_Fraction_VarInjVol.Rmd
+    
+    saved: MetabolomicsProjects/PelletsVesiclesReExtractionJune2017
+
+6. BMISed_data_Fraction.xset.filtered is subjected to normalization to structure counts or biovolume which produces a data.frame called Fraction.PelletsVesicles.931X.xset.vesnormalized and Fraction.PelletsVesicles.931X.xset.biovolumenormalized, respectively.  
+
+    For biovolume estimates, a radius of X (cells) or Y (vesicles) is used.
+
+    script: DataNormalization_Fraction_June2017Data.Rmd
+    
+    saved: MetabolomicsProjects/PelletsVesiclesReExtractionJune2017
+
+<!-- 7. Determine most abudant MFs in ALL vesicles and generate MostAbundantIonsAndRI.csv -->
+
+<!--     script: ProVesiclesDataExploration.Rmd (for CyanoDCM) -->
+
+<!--     script: ProVesiclesDataExploration_Fraction.Rmd (for all other fractions) -->
+
+<!--     function: mfRImatch() in source: mfrelatedionsmatch_vesicles.function.R -->
+
+<!--     saved: Prochlorococcus/Vesicles_January_2017 -->
+
+
+<!-- 8. Calculate log2 relationship between all vesicle and cell pellets on a strain by strain basis and generate Fraction.logplotdata.biovolume.ISreq.csv -->
+
+<!--     script: PelletsVsVesicles931XDataExploration_Fraction.Rmd -->
+
+<!--     saved: Prochlorococcus/PelletsVesicles931X -->
+
+<!-- 9. Compare most abundant MFs from vesicles to those which are significantly enriched (p < 0.05) in vesicles relative to cell pellets and generate Fraction_MostAbundantEnriched931X_BMISnormal_biovolumenormal_ISreq.csv -->
+
+<!--     script: CompareAbundantVsEnrichedInVesicles_Fraction_BMISnormal_ISreq.Rmd -->
+
+<!--     saved: Prochlorococcus/CyanoDCM_MostAbundantEnrichedMFs -->
+
+<!-- 10. Extract EICs for MFs to ensure all MFs are real, robust peaks.   At this stage, most of the results in CyanoAq, HILICPos were removed because the mass features were visually assessed as low quality peaks based on peak size, shape and reproducibility.  -->
+
+<!--     script: CompareAbundantVsEnrichedInVesicles_Fraction_BMISnormal_ISreq.Rmd -->
+
+<!--     function: eicplotter() from source: EICPlots_2Groups.function.R -->
+
+<!-- 11. Determine relationship between MAME MFs by replicating with OtherIons. -->
+
+<!--     script: -->
+
+<!-- 12. De-isotope. -->
+
+<!-- 13. Dereplicate with TargetCompounds -->
+
+<!--     script: -->
+
+<!-- 14. Dereplicate with Ben's LOBSTAHs output -->
+
+<!-- 15. In the future, this would also be a great time to dereplicate with TargetWishList and SignificantUntargetedMassFeatures -->
+
+<!-- 16. Screen MFs against Metlin.  Where Metlin has potential matches, pull ms2s from DDA data for compairison. -->

@@ -30,8 +30,8 @@ library(dplyr)
 ```{r Set experiment and fraction name,  results='hide', message=FALSE, warning=FALSE}
 
 Location <- getwd()
-Fraction <- "CyanoDCM"
-FractionShort <- "CyanoDCM" #HILIC or CyanoAq or CyanoDCM
+Fraction <- "CyanoAq"
+FractionShort <- "CyanoAq" #HILIC or CyanoAq or CyanoDCM
 ExpDIR <-
 "~/Desktop/MetabolomicsProjects/Prochlorococcus/PelletsVesiclesReExtractionJune2017"
 #ExpDIR <-Location
@@ -52,7 +52,7 @@ Dirs[] <- lapply(Dirs, gsub, pattern = "/Prochlorococcus", replacement = "", fix
 
 
 
-Fraction <- "CyanoDCM"
+Fraction <- "CyanoAq"
 ResultsDIR <- as.character(Dirs[Fraction, "ResultsDIR"])
 setwd(ResultsDIR)
 
@@ -70,7 +70,7 @@ ISDir <- "~/Desktop/MetabolomicsProjects/PelletsVesiclesReExtractionJune2017/IS"
 setwd(ISDir)
 
 
-IS.dat <- read_csv("Ingalls_Lab_CyanoDCM_VesiclesPro_QE_Transition Results.csv")
+IS.dat <- read_csv("Ingalls_Lab_CyanoAq_VesiclesPro_QE_Transition Results.csv")
 IS.dat <- IS.dat %>%
      select(`Replicate Name`, `Precursor Ion Name`, Area) %>%
      mutate(MassFeature = `Precursor Ion Name`) %>%
@@ -89,7 +89,7 @@ glimpse(IS.dat)
 # 
 # print(xcms.names)
 # 
-allsamples <- xcms.names[grepl("_Smp|_Blk_2|_Blk_1|_ProcessBlk|_Poo|StdsInDCM", xcms.names)]
+allsamples <- xcms.names[grepl("_Smp|_Blk_2|_Blk_1|_ProcessBlk|_Poo|_Std", xcms.names)]
 allsamples <- gsub('X', '', allsamples)
 # IS.dat <- filter(IS.dat, Replicate.Name %in% allsamples)
 # 
@@ -140,21 +140,37 @@ ggplot(IS.dat, aes(x=`Replicate Name`, y=Area)) + geom_bar(stat="identity") + fa
 ```{r correctISErrors}
 
  errors <- IS.dat %>%
-      filter(MassFeature=="Heavy Archiodonic Acid") %>%
+      filter(MassFeature=="Heavy IAA") %>%
       filter(grepl("Pro|Std", `Replicate Name`)) %>%
       mutate(Area2 = Area) %>%
       mutate(Area = Area/10)
 
-# IS.dat.test <- IS.dat %>% mutate(Area2 = Area)
 
-IS.dat$Area[(IS.dat$MassFeature == "Heavy Archiodonic Acid") & 
+
+IS.dat$Area[(IS.dat$MassFeature == "Heavy IAA") & 
+                    (grepl("Pro|Std", IS.dat$`Replicate Name`))] <- errors$Area
+
+
+ errors <- IS.dat %>%
+      filter(MassFeature=="Heavy Tryptamine") %>%
+      filter(grepl("Pro|Std", `Replicate Name`)) %>%
+      mutate(Area2 = Area) %>%
+      mutate(Area = Area/5)
+
+
+
+IS.dat$Area[(IS.dat$MassFeature == "Heavy Tryptamine") & 
                     (grepl("Pro|Std", IS.dat$`Replicate Name`))] <- errors$Area
 
 ```
 ##look at extraction replication- everything better?
 
 ```{r, echo=FALSE}
-ggplot(IS.dat, aes(x=`Replicate Name`, y=Area)) + geom_bar(stat="identity") + facet_wrap( ~MassFeature, scales="free_y")+theme(axis.text.x = element_text(angle = 90, hjust = 1,vjust = 0.5), legend.position = "top")  + ggtitle("IS Raw Areas")
+q <- ggplot(IS.dat, aes(x=`Replicate Name`, y=Area)) + geom_bar(stat="identity") + facet_wrap( ~MassFeature, scales="free_y")+theme(axis.text.x = element_text(angle = 90, hjust = 1,vjust = 0.5), legend.position = "top")  + ggtitle("IS Raw Areas")
+```
+
+```{r}
+print(q)
 ```
 
 ##Get untargeted data into long format
@@ -180,8 +196,6 @@ xcms.long <- xcms.long %>%
   mutate(Replicate.Name = Replicate.Name %>%
            str_replace("Blk_1","Blk_1_")%>%
            str_replace("Blk_2","Blk_2_") %>%
-            str_replace("_DCM","_")%>%
-           str_replace(".DCM","")%>%
            str_replace("X1700606","1700606") %>%
            str_replace("X170606","170606"))
 
@@ -260,7 +274,7 @@ for (i in 2:length(IS.list)){
      }
 }
 #glimpse(area.norm)
-write_csv(area.norm, "CyanoDCM.area.norm.csv")
+write_csv(area.norm, "CyanoAq.area.norm.csv")
 ```
 
 
@@ -365,7 +379,7 @@ rsd.total <- rsd.total %>%
 Only keep PooPlus (BMIS model)
 ```{r, echo=FALSE}
 setwd(ExpDIR)
-dat <- read.csv(paste(Fraction, "dat.temp.csv", sep=""), row.names = 1)
+dat <- read.csv(paste(Fraction, "dat.temp.csv", sep="."), row.names = 1)
 # 
 # models <- rsd.total %>% ungroup %>%
 #      select(MassFeature, PooPlus.IS) %>%

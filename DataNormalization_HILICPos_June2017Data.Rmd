@@ -1,0 +1,375 @@
+---
+title: "DataNormalization_HILICPos_June2017"
+author: "Laura Hmelo"
+date: "December 05, 2017"
+output: html_document
+---
+
+
+
+```{r setup, include=FALSE}
+
+library(stringr)
+library(ggplot2)
+library(reshape2)
+library(tidyverse)
+```
+
+
+```{r setup, include=FALSE}
+
+Experiment <- "HILICPos_June2017Data"
+
+#define key directories
+ExpDIR <-
+"~/Desktop/MetabolomicsProjects/PelletsVesiclesReExtractionJune2017"
+functionDIR <- "~/Desktop/MetabolomicsProjects/RScripts"
+targetcompoundpath <- "~/Desktop/MetabolomicsProjects/RScripts/data"
+
+#load in Params and relevant Dirs for Experiment
+setwd(ExpDIR)
+Params <- read.csv("Params.csv",  row.names = 1)
+load("Dirs2017-06-27")
+
+Dirs[] <- lapply(Dirs, gsub, pattern = "/Prochlorococcus", replacement = "", fixed = TRUE)
+
+
+#Define fraction list (may be reassigned within chunks)
+FractionList <- c("HILICPos")
+
+
+#Define experimental groups
+Treat1ID <- "Pro9313"
+Treat2ID <- "Vesicle9313"
+Treat3ID <- "Pro9312"
+Treat4ID <- "Vesicle9312"
+
+
+
+
+
+```
+
+
+#load BMIS normalized HILICPos xset data
+```{r norm to Vesicles, message=FALSE, warning=FALSE, include=FALSE}
+
+    Fraction <- "HILICPos"
+
+ResultsDIR <- as.character(Dirs[Fraction, "ResultsDIR"])
+setwd(ResultsDIR)
+data <-
+read.csv(paste(paste("BMISed_data_", Fraction, sep=""), "xset.filtered.csv", sep = "."), row.names = 1)
+
+```
+
+#Normalize HILICPos data to cell and vesicle counts
+```{r norm to vesicles, message=FALSE, warning=FALSE, include=FALSE}
+ names <- unique(data$Replicate.Name)
+Samples <-as.character(names[grepl("Smp", names)])
+  # Blk2 <- names[grepl("Blk_2", names)]
+  # Blk1 <- names[grepl("Blk_1", names)]
+  # Pooled <- names[grepl("Poo", names)]
+  
+  
+#Pro9313
+  Treat1 <- as.character(Samples[grepl(as.character(Treat1ID), Samples)])
+#Vesicles9313
+  Treat2 <- as.character(Samples[grepl(as.character(Treat2ID), Samples)])
+#Pro9312
+  Treat3 <- as.character(Samples[grepl(as.character(Treat3ID), Samples)])
+#Vesicles9312
+  Treat4 <- as.character(Samples[grepl(as.character(Treat4ID), Samples)])
+
+# setwd("~/Desktop/MetabolomicsProjects/Prochlorococcus")
+# VesicleCount <- read.csv("VesicleCount.csv")
+setwd("~/Desktop/MetabolomicsProjects/Prochlorococcus")
+CellCount <- read.csv("CellCount.csv", stringsAsFactors = FALSE)
+
+VesicleCount <- CellCount %>% 
+  mutate(Sample = gsub('Pro', 'Vesicle', Sample)) %>%
+  mutate(Sample = gsub('_A_', '_2_', Sample)) %>%
+  mutate(Sample = gsub('_B_', '_1_', Sample)) %>%
+  mutate(Sample = gsub('_C_', '_3_', Sample)) %>%
+  mutate(Sample = gsub('X170128', '170606', Sample)) %>%
+  mutate(Sample = Sample %>% str_replace("_DCM","")) %>%
+  rename(Replicate.Name = Sample)
+
+VesicleCount_9313 <- VesicleCount %>% filter(grepl('9313', Replicate.Name))
+VesicleCount_9312 <- VesicleCount %>% filter(grepl('9312', Replicate.Name))
+
+
+CellCount <- CellCount %>% 
+  mutate(Sample = Sample %>% str_replace("_DCM","")) %>%
+  mutate(Sample = gsub('X170128', '170606', Sample)) %>%
+  rename(Replicate.Name = Sample)
+
+CellCount_9313 <- CellCount %>% filter(grepl('9313', Replicate.Name))
+CellCount_9312 <- CellCount %>% filter(grepl('9312', Replicate.Name))
+
+
+AvgVes_9313 <- mean(VesicleCount_9313$vesicles.extracted)
+AvgVes_9312 <- mean(VesicleCount_9312$vesicles.extracted)
+AvgCells_9313 <- mean(CellCount_9313$cells.extracted)
+AvgCells_9312 <- mean(CellCount_9312$cells.extracted)
+
+AvgExtracted_9313 <- mean(c(CellCount_9313$cells.extracted, VesicleCount_9313$vesicles.extracted))
+
+AvgExtracted_9312 <- mean(c(CellCount_9313$cells.extracted, VesicleCount_9313$vesicles.extracted))
+
+
+#normalize vesicles:
+data_vesnorm_9313 <- data
+data_vesnorm_9313 <- data %>% 
+  filter(Replicate.Name %in% Treat2) %>%
+  left_join(VesicleCount, "Replicate.Name") %>%
+  mutate (area.vcnorm = (PooPlusModel/vesicles.extracted)*AvgExtracted_9313) %>%
+  dcast (MassFeature + PooPlusModel.IS ~ Replicate.Name, value.var = "area.vcnorm")
+  #mutate(AveTreat1 = rowMeans(data_vesnorm[, Treat1])) %>%
+data_vesnorm_9313 <-  data_vesnorm_9313 %>% 
+  mutate(AveTreat2 = rowMeans(data_vesnorm_9313[, Treat2])) %>%
+  #mutate(Treat1.sd.vesnorm = apply(data_vesnorm[, Treat1], 1, sd)) %>%
+  mutate(Treat2.sd.vesnorm = apply(data_vesnorm_9313[, Treat2], 1, sd)) %>%
+  #mutate(Treat1.sd.vesnorm.per = (Treat1.sd.vesnorm/AveTreat1)*100) %>%
+  mutate(Treat2.sd.vesnorm.per = (Treat2.sd.vesnorm/AveTreat2)*100) %>%
+  select (MassFeature, PooPlusModel.IS, one_of(Samples), AveTreat2, Treat2.sd.vesnorm.per )
+
+
+data_vesnorm_9312 <- data
+data_vesnorm_9312 <- data %>% 
+  filter(Replicate.Name %in% Treat4) %>%
+  left_join(VesicleCount, "Replicate.Name") %>%
+  mutate (area.vcnorm = (PooPlusModel/vesicles.extracted)*AvgExtracted_9312) %>%
+  dcast (MassFeature + PooPlusModel.IS ~ Replicate.Name, value.var = "area.vcnorm")
+  #mutate(AveTreat1 = rowMeans(data_vesnorm[, Treat1])) %>%
+data_vesnorm_9312 <-  data_vesnorm_9312 %>% 
+  mutate(AveTreat4 = rowMeans(data_vesnorm_9312[, Treat4])) %>%
+  #mutate(Treat1.sd.vesnorm = apply(data_vesnorm[, Treat1], 1, sd)) %>%
+  mutate(Treat4.sd.vesnorm = apply(data_vesnorm_9312[, Treat4], 1, sd)) %>%
+  #mutate(Treat1.sd.vesnorm.per = (Treat1.sd.vesnorm/AveTreat1)*100) %>%
+  mutate(Treat4.sd.vesnorm.per = (Treat4.sd.vesnorm/AveTreat4)*100) %>%
+  select (MassFeature, PooPlusModel.IS, one_of(Samples), AveTreat4, Treat4.sd.vesnorm.per )
+
+#Normalize to cells:
+
+
+data_cellnorm_9313 <- data
+data_cellnorm_9313 <- data %>% 
+  left_join(CellCount_9313, "Replicate.Name") %>%
+  filter(Replicate.Name %in% Treat1) %>%
+  mutate (area.cellnorm = (PooPlusModel/cells.extracted)*AvgExtracted_9313) %>%
+  dcast (MassFeature + PooPlusModel.IS ~ Replicate.Name, value.var = "area.cellnorm")
+  
+data_cellnorm_9313 <- data_cellnorm_9313 %>% 
+  mutate(AveTreat1 = rowMeans(data_cellnorm_9313[, Treat1])) %>%
+  #mutate(AveTreat2 = rowMeans(data_vesnorm[, Treat2])) %>%
+  mutate(Treat1.sd.cellnorm = apply(data_cellnorm_9313[, Treat1], 1, sd)) %>%
+  #mutate(Treat2.sd.vesnorm = apply(data_vesnorm[, Treat2], 1, sd)) %>%
+  mutate(Treat1.sd.cellnorm.per = (Treat1.sd.cellnorm/AveTreat1)*100) %>%
+  #mutate(Treat2.sd.vesnorm.per = (Treat2.sd.vesnorm/AveTreat2)*100) %>%
+  select (MassFeature, PooPlusModel.IS, one_of(Treat1), AveTreat1, Treat1.sd.cellnorm.per )
+
+
+data_cellnorm_9312 <- data
+data_cellnorm_9312 <- data %>% 
+  left_join(CellCount_9312, "Replicate.Name") %>%
+  filter(Replicate.Name %in% Treat3) %>%
+  mutate (area.cellnorm = (PooPlusModel/cells.extracted)*AvgExtracted_9312) %>%
+  dcast (MassFeature + PooPlusModel.IS ~ Replicate.Name, value.var = "area.cellnorm")
+  
+data_cellnorm_9312 <- data_cellnorm_9312 %>% 
+  mutate(AveTreat3 = rowMeans(data_cellnorm_9312[, Treat3])) %>%
+  #mutate(AveTreat2 = rowMeans(data_vesnorm[, Treat2])) %>%
+  mutate(Treat3.sd.cellnorm = apply(data_cellnorm_9312[, Treat3], 1, sd)) %>%
+  #mutate(Treat2.sd.vesnorm = apply(data_vesnorm[, Treat2], 1, sd)) %>%
+  mutate(Treat3.sd.cellnorm.per = (Treat3.sd.cellnorm/AveTreat3)*100) %>%
+  #mutate(Treat2.sd.vesnorm.per = (Treat2.sd.vesnorm/AveTreat2)*100) %>%
+  select (MassFeature, PooPlusModel.IS, one_of(Treat3), AveTreat3, Treat3.sd.cellnorm.per )
+
+
+data_allnorm_9313 <- data_vesnorm_9313 %>% left_join(data_cellnorm_9313, c("MassFeature", "PooPlusModel.IS")) %>% select(MassFeature, PooPlusModel.IS, AveTreat1, AveTreat2, Treat1.sd.cellnorm.per, Treat2.sd.vesnorm.per, everything())
+
+
+data_allnorm_9312 <- data_vesnorm_9312 %>% 
+  left_join(data_cellnorm_9312, c("MassFeature", "PooPlusModel.IS")) %>% 
+  select(MassFeature, PooPlusModel.IS, AveTreat3, AveTreat4, Treat3.sd.cellnorm.per, Treat4.sd.vesnorm.per, everything()) %>% 
+  rename(AveTreat1 = AveTreat3) %>% 
+  rename(AveTreat2 = AveTreat4) %>% 
+  rename(Treat1.sd.cellnorm.per = Treat3.sd.cellnorm.per) %>% 
+  rename(Treat2.sd.vesnorm.per = Treat4.sd.vesnorm.per)
+
+
+
+setwd(ResultsDIR)
+write.csv(data_allnorm_9312, file = paste(Fraction, "PelletsVesicles.9312", "xset.vesnormalized.csv", sep="."), row.names = FALSE)
+
+setwd(ResultsDIR)
+write.csv(data_allnorm_9313, file = paste(Fraction, "PelletsVesicles.9313", "xset.vesnormalized.csv", sep="."), row.names = FALSE)
+
+
+```
+
+
+#Normalize HILICPos data to biovolume
+```{r norm to vesicles, message=FALSE, warning=FALSE, include=FALSE}
+ names <- unique(data$Replicate.Name)
+Samples <-as.character(names[grepl("Smp", names)])
+  # Blk2 <- names[grepl("Blk_2", names)]
+  # Blk1 <- names[grepl("Blk_1", names)]
+  # Pooled <- names[grepl("Poo", names)]
+  
+  
+#Pro9313
+  Treat1 <- as.character(Samples[grepl(as.character(Treat1ID), Samples)])
+#Vesicles9313
+  Treat2 <- as.character(Samples[grepl(as.character(Treat2ID), Samples)])
+#Pro9312
+  Treat3 <- as.character(Samples[grepl(as.character(Treat3ID), Samples)])
+#Vesicles9312
+  Treat4 <- as.character(Samples[grepl(as.character(Treat4ID), Samples)])
+
+# setwd("~/Desktop/MetabolomicsProjects/Prochlorococcus")
+# VesicleCount <- read.csv("VesicleCount.csv")
+setwd("~/Desktop/MetabolomicsProjects/Prochlorococcus")
+CellCount <- read.csv("CellCount.csv", stringsAsFactors = FALSE)
+
+VesicleCount <- CellCount %>% 
+  mutate(Sample = gsub('Pro', 'Vesicle', Sample)) %>%
+  mutate(Sample = gsub('_A_', '_2_', Sample)) %>%
+  mutate(Sample = gsub('_B_', '_1_', Sample)) %>%
+  mutate(Sample = gsub('_C_', '_3_', Sample)) %>%
+  mutate(Sample = gsub('X170128', '170606', Sample)) %>%
+  mutate(Sample = Sample %>% str_replace("_DCM","")) %>%
+  rename(Replicate.Name = Sample)
+
+VesicleCount_9313 <- VesicleCount %>% filter(grepl('9313', Replicate.Name))
+VesicleCount_9312 <- VesicleCount %>% filter(grepl('9312', Replicate.Name))
+
+
+CellCount <- CellCount %>% 
+  mutate(Sample = Sample %>% str_replace("_DCM","")) %>%
+  mutate(Sample = gsub('X170128', '170606', Sample)) %>%
+  rename(Replicate.Name = Sample)
+
+CellCount_9313 <- CellCount %>% filter(grepl('9313', Replicate.Name))
+CellCount_9312 <- CellCount %>% filter(grepl('9312', Replicate.Name))
+
+
+# AvgVes_9313 <- mean(VesicleCount_9313$vesicles.extracted)
+# AvgVes_9312 <- mean(VesicleCount_9312$vesicles.extracted)
+# AvgCells_9313 <- mean(CellCount_9313$cells.extracted)
+# AvgCells_9312 <- mean(CellCount_9312$cells.extracted)
+
+
+AvgBiovolume_9313 <- mean(c(CellCount_9313$cells.biovolume, VesicleCount_9313$vesicles.biovolume))
+
+AvgBiovolume_9312 <- mean(c(CellCount_9312$cells.biovolume, VesicleCount_9312$vesicles.biovolume))
+
+
+
+#normalize vesicles:
+data_vesnorm_9313 <- data
+data_vesnorm_9313 <- data %>% 
+  filter(Replicate.Name %in% Treat2) %>%
+  left_join(VesicleCount, "Replicate.Name") %>%
+  mutate (area.vcnorm = (PooPlusModel/vesicles.biovolume)*AvgBiovolume_9313) %>% 
+  dcast (MassFeature + PooPlusModel.IS ~ Replicate.Name, value.var = "area.vcnorm")
+  #mutate(AveTreat1 = rowMeans(data_vesnorm[, Treat1])) %>%
+data_vesnorm_9313 <-  data_vesnorm_9313 %>% 
+  mutate(AveTreat2 = rowMeans(data_vesnorm_9313[, Treat2])) %>%
+  #mutate(Treat1.sd.vesnorm = apply(data_vesnorm[, Treat1], 1, sd)) %>%
+  mutate(Treat2.sd.vesnorm = apply(data_vesnorm_9313[, Treat2], 1, sd)) %>%
+  #mutate(Treat1.sd.vesnorm.per = (Treat1.sd.vesnorm/AveTreat1)*100) %>%
+  mutate(Treat2.sd.vesnorm.per = (Treat2.sd.vesnorm/AveTreat2)*100) %>%
+  select (MassFeature, PooPlusModel.IS, one_of(Samples), AveTreat2, Treat2.sd.vesnorm.per )
+
+
+data_vesnorm_9312 <- data
+data_vesnorm_9312 <- data %>% 
+  filter(Replicate.Name %in% Treat4) %>%
+  left_join(VesicleCount, "Replicate.Name") %>%
+  mutate (area.vcnorm = (PooPlusModel/vesicles.biovolume)*AvgBiovolume_9312) %>% 
+  dcast (MassFeature + PooPlusModel.IS ~ Replicate.Name, value.var = "area.vcnorm")
+  #mutate(AveTreat1 = rowMeans(data_vesnorm[, Treat1])) %>%
+data_vesnorm_9312 <-  data_vesnorm_9312 %>% 
+  mutate(AveTreat4 = rowMeans(data_vesnorm_9312[, Treat4])) %>%
+  #mutate(Treat1.sd.vesnorm = apply(data_vesnorm[, Treat1], 1, sd)) %>%
+  mutate(Treat4.sd.vesnorm = apply(data_vesnorm_9312[, Treat4], 1, sd)) %>%
+  #mutate(Treat1.sd.vesnorm.per = (Treat1.sd.vesnorm/AveTreat1)*100) %>%
+  mutate(Treat4.sd.vesnorm.per = (Treat4.sd.vesnorm/AveTreat4)*100) %>%
+  select (MassFeature, PooPlusModel.IS, one_of(Samples), AveTreat4, Treat4.sd.vesnorm.per )
+
+#Normalize to cells:
+
+
+data_cellnorm_9313 <- data
+data_cellnorm_9313 <- data %>% 
+  left_join(CellCount_9313, "Replicate.Name") %>%
+  filter(Replicate.Name %in% Treat1) %>%
+  mutate (area.cellnorm = (PooPlusModel/cells.biovolume)*AvgBiovolume_9313) %>%
+  dcast (MassFeature + PooPlusModel.IS ~ Replicate.Name, value.var = "area.cellnorm")
+  
+data_cellnorm_9313 <- data_cellnorm_9313 %>% 
+  mutate(AveTreat1 = rowMeans(data_cellnorm_9313[, Treat1])) %>%
+  #mutate(AveTreat2 = rowMeans(data_vesnorm[, Treat2])) %>%
+  mutate(Treat1.sd.cellnorm = apply(data_cellnorm_9313[, Treat1], 1, sd)) %>%
+  #mutate(Treat2.sd.vesnorm = apply(data_vesnorm[, Treat2], 1, sd)) %>%
+  mutate(Treat1.sd.cellnorm.per = (Treat1.sd.cellnorm/AveTreat1)*100) %>%
+  #mutate(Treat2.sd.vesnorm.per = (Treat2.sd.vesnorm/AveTreat2)*100) %>%
+  select (MassFeature, PooPlusModel.IS, one_of(Treat1), AveTreat1, Treat1.sd.cellnorm.per )
+
+
+data_cellnorm_9312 <- data
+data_cellnorm_9312 <- data %>% 
+  left_join(CellCount_9312, "Replicate.Name") %>%
+  filter(Replicate.Name %in% Treat3) %>%
+  mutate (area.cellnorm = (PooPlusModel/cells.biovolume)*AvgBiovolume_9312) %>%
+  dcast (MassFeature + PooPlusModel.IS ~ Replicate.Name, value.var = "area.cellnorm")
+  
+data_cellnorm_9312 <- data_cellnorm_9312 %>% 
+  mutate(AveTreat3 = rowMeans(data_cellnorm_9312[, Treat3])) %>%
+  #mutate(AveTreat2 = rowMeans(data_vesnorm[, Treat2])) %>%
+  mutate(Treat3.sd.cellnorm = apply(data_cellnorm_9312[, Treat3], 1, sd)) %>%
+  #mutate(Treat2.sd.vesnorm = apply(data_vesnorm[, Treat2], 1, sd)) %>%
+  mutate(Treat3.sd.cellnorm.per = (Treat3.sd.cellnorm/AveTreat3)*100) %>%
+  #mutate(Treat2.sd.vesnorm.per = (Treat2.sd.vesnorm/AveTreat2)*100) %>%
+  select (MassFeature, PooPlusModel.IS, one_of(Treat3), AveTreat3, Treat3.sd.cellnorm.per )
+
+
+data_allnorm_9313 <- data_vesnorm_9313 %>% left_join(data_cellnorm_9313, c("MassFeature", "PooPlusModel.IS")) %>% select(MassFeature, PooPlusModel.IS, AveTreat1, AveTreat2, Treat1.sd.cellnorm.per, Treat2.sd.vesnorm.per, everything())
+
+
+data_allnorm_9312 <- data_vesnorm_9312 %>% 
+  left_join(data_cellnorm_9312, c("MassFeature", "PooPlusModel.IS")) %>% 
+  select(MassFeature, PooPlusModel.IS, AveTreat3, AveTreat4, Treat3.sd.cellnorm.per, Treat4.sd.vesnorm.per, everything()) %>% 
+  rename(AveTreat1 = AveTreat3) %>% 
+  rename(AveTreat2 = AveTreat4) %>% 
+  rename(Treat1.sd.cellnorm.per = Treat3.sd.cellnorm.per) %>% 
+  rename(Treat2.sd.vesnorm.per = Treat4.sd.vesnorm.per)
+
+
+
+setwd(ResultsDIR)
+write.csv(data_allnorm_9312, file = paste(Fraction, "PelletsVesicles.9312", "xset.biovolumenormalized.csv", sep="."), row.names = FALSE)
+
+setwd(ResultsDIR)
+write.csv(data_allnorm_9313, file = paste(Fraction, "PelletsVesicles.9313", "xset.biovolumenormalized.csv", sep="."), row.names = FALSE)
+
+
+```
+
+
+
+
+```{r}
+rm(data)
+rm(data_allnorm_9312)
+rm(data_allnorm_9313)
+rm(data_cellnorm_9312)
+rm(data_vesnorm9312)
+rm(data_cellnorm_9313)
+rm(data_vesnorm9313)
+
+```
+
+

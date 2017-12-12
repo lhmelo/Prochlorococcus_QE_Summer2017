@@ -1,0 +1,337 @@
+---
+title: "DataExploration_CyanoDCM_June2017Data"
+author: "Laura Hmelo"
+date: "December 05, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+
+library(stringr)
+library(ggplot2)
+library(tidyverse)
+library(reshape2)
+library(cowplot)
+
+```
+
+
+```{r setup, include=FALSE}
+
+Experiment <- "CyanoDCM_June2017Data"
+
+#define key directories
+ExpDIR <-
+"~/Desktop/MetabolomicsProjects/PelletsVesiclesReExtractionJune2017"
+functionDIR <- "~/Desktop/MetabolomicsProjects/RScripts"
+targetcompoundpath <- "~/Desktop/MetabolomicsProjects/RScripts/data"
+
+#load in Params and relevant Dirs for Experiment
+setwd(ExpDIR)
+Params <- read.csv("Params.csv",  row.names = 1)
+load("Dirs2017-06-27")
+
+Dirs[] <- lapply(Dirs, gsub, pattern = "/Prochlorococcus", replacement = "", fixed = TRUE)
+
+#Define fraction list (may be reassigned within chunks)
+FractionList <- c("HILICNeg", "HILICPos", "CyanoAq", "CyanoDCM")
+
+
+#Define experimental groups
+Treat1ID <- "Pro9313"
+Treat2ID <- "Vesicle9313"
+
+
+
+
+
+```
+
+
+#load in files for data exploration using just BMIS-normalized-CyanoDCM fraction 
+
+**CHANGE INPUT FILE TO BMIS NORMALIZED FILE!**
+```{r setup CyanoDCM}
+
+
+Fraction <- "CyanoDCM"
+ResultsDIR <- as.character(Dirs[Fraction, "ResultsDIR"])
+setwd(ResultsDIR)
+#NeutralMassList <- read.csv(paste(Fraction, "NeutralMassList.csv", sep="."))
+xset.filtered <- read.csv(paste(Fraction, ".xset.filtered.csv", sep=""), row.names=1)
+xset.normal <- read.csv(paste(Fraction, "PelletsVesicles.9313.xset.vesnormalized.csv", sep="."))
+xset.biovolumenormal <- read.csv(paste(Fraction, "PelletsVesicles.9313.xset.biovolumenormalized.csv", sep="."))
+
+
+#load("sig.groupnames.RData")
+
+names <- colnames(xset.filtered)
+Samples <- names[grepl("_Smp_", names)]
+Blanks <- names[grepl("Blk", names)]
+Pooled <- names[grepl("Poo", names)]
+
+Treat1 <- Samples[grepl(as.character(Treat1ID), Samples)]
+Treat2 <- Samples[grepl(as.character(Treat2ID), Samples)]
+```
+
+```{r}
+xset.mzRT <- xset.filtered %>% select(MassFeature, mz, RT)
+xset.normal <- xset.normal %>% left_join(xset.mzRT, "MassFeature")
+xset.biovolumenormal <- xset.biovolumenormal %>% left_join(xset.mzRT, "MassFeature")
+
+
+```
+
+
+#Generate MFs list for mass features most prominent in 9313 or 9212 within CyanoDCM fraction
+```{r CyanoDCM eicplotter, include=FALSE}
+#MFs for all mass features where 9313 is at least 4x 9212
+
+# setwd(functionDIR)
+# source("EICPlots_2Groups.function.R")
+# 
+# eicplotter(MFs_9312high_short, "CyanoDCM", "CyanoDCM_ProPellets_MFs_9312_75MostDifferent")
+# eicplotter(MFs_9313high_short, "CyanoDCM", "CyanoDCM_ProPellets_MFs_9313_75MostDifferent")
+```
+
+#Plotting EICs for internal standards to pdf for three fractions
+```{r isplotter all fractions, echo=FALSE}
+# setwd(functionDIR)
+# source("ISplotter.function.R")
+# FractionList <- c("HILICPos", "CyanoAq", "CyanoDCM")
+# isplotter()
+```
+
+#Plotting EICs for targetted metabolites to pdf for three fractions
+```{r tcplotter all fractions, message=FALSE, warning=FALSE, include=FALSE}
+# setwd(functionDIR)
+# source("TCplotter.function.R")
+# FractionList <- c("HILICPos", "CyanoAq", "CyanoDCM")
+# tcplotter()
+
+```
+
+#raw data plotted for all fractions
+```{r}
+# 
+# setwd(functionDIR)
+# source("logplot.function.R")
+# FractionList <- c( "HILICNeg", "HILICPos", "CyanoAq", "CyanoDCM")
+# logplot()
+# 
+#Mass features on positive Y axis are enriched in Treat1: Cell Pellets
+```
+#Plot raw CyanoDCM data
+```{r plot CyanoDCM vesnorm}
+
+Fraction <- "CyanoDCM"
+ResultsDIR <- as.character(Dirs[Fraction, "ResultsDIR"])
+setwd(ResultsDIR)
+data <-
+xset.filtered
+ 
+  
+    
+    # names <- colnames(data)
+    # Samples <- names[grepl("Smp", names)]
+    # 
+    # Treat1 <- Samples[grepl(as.character(Treat1ID), Samples)]
+    # Treat2 <- Samples[grepl(as.character(Treat2ID), Samples)]
+
+ data_test <- data %>%
+    filter((AveVesicles9313 > (AveBlk1 * 2) & 
+             AveVesicles9313 > (AveBlk2 * 2) & 
+             (AveVesicles9312 + Vesicles9312.sd) > (AveBlk1 - Blk1.sd) &
+             (AveVesicles9312 + Vesicles9312.sd) > (AveBlk2 - Blk2.sd) &
+             (AvePro9312 + Pro9312.sd) > (AveBlk2 - Blk2.sd) &
+             (AvePro9312 + Pro9312.sd) > (AveProcessBlk - ProcessBlk.sd) &
+             (AvePro9313 + Pro9313.sd) > (AveBlk2 - Blk2.sd) &
+             (AvePro9313 + Pro9313.sd) > (AveProcessBlk - ProcessBlk.sd)) |
+             
+             (AveVesicles9312 > (AveBlk1 * 2) & 
+                AveVesicles9312 > (AveBlk2 * 2) & 
+                (AveVesicles9313 + Vesicles9313.sd) > (AveBlk1 - Blk1.sd) &
+                (AveVesicles9313 + Vesicles9313.sd) > (AveBlk2 - Blk2.sd) &
+                (AvePro9312 + Pro9312.sd) > (AveBlk2 - Blk2.sd) &
+                (AvePro9312 + Pro9312.sd) > (AveProcessBlk - ProcessBlk.sd) &
+                (AvePro9313 + Pro9313.sd) > (AveBlk2 - Blk2.sd) &
+                (AvePro9313 + Pro9313.sd) > (AveProcessBlk - ProcessBlk.sd)) |
+  
+             
+             (AvePro9313 > (AveProcessBlk * 2) & 
+                AvePro9313 > (AveBlk2 * 2) & 
+                (AveVesicles9312 + Vesicles9312.sd) > (AveBlk1 - Blk1.sd) &
+                (AveVesicles9312 + Vesicles9312.sd) > (AveBlk2 - Blk2.sd) &
+                (AveVesicles9313 + Vesicles9313.sd) > (AveBlk1 - Blk1.sd) &
+                (AveVesicles9313 + Vesicles9313.sd) > (AveBlk2 - Blk2.sd) &
+                (AvePro9312 + Pro9312.sd) > (AveBlk2 - Blk2.sd) &
+                (AvePro9312 + Pro9312.sd) > (AveProcessBlk - ProcessBlk.sd)) |
+             
+             (AvePro9312 > (AveProcessBlk * 2) & 
+                AvePro9312 > (AveBlk2 * 2) & 
+                (AveVesicles9312 + Vesicles9312.sd) > (AveBlk1 - Blk1.sd) &
+                (AveVesicles9312 + Vesicles9312.sd) > (AveBlk2 - Blk2.sd) &
+                (AveVesicles9313 + Vesicles9313.sd) > (AveBlk1 - Blk1.sd) &
+                (AveVesicles9313 + Vesicles9313.sd) > (AveBlk2 - Blk2.sd) &
+                (AvePro9313 + Pro9313.sd) > (AveBlk2 - Blk2.sd) &
+                (AvePro9313 + Pro9313.sd) > (AveProcessBlk - ProcessBlk.sd)) 
+           )
+             
+
+```
+
+#Plot CyanoDCM data normalized to vesicle and cell counts and internal standards
+```{r plot CyanoDCM vesnorm}
+
+Fraction <- "CyanoDCM"
+ResultsDIR <- as.character(Dirs[Fraction, "ResultsDIR"])
+setwd(ResultsDIR)
+
+
+data <- xset.normal %>% 
+  filter(AveTreat1 > 1 & AveTreat2 > 1)
+    
+    
+    
+    
+    Treat1ID <- "Pro9313"
+    Treat2ID <- "Vesicle9313"
+    
+    names <- colnames(data)
+    Samples <- names[grepl("Smp", names)]
+    
+    Treat1 <- Samples[grepl(as.character(Treat1ID), Samples)]
+    Treat2 <- Samples[grepl(as.character(Treat2ID), Samples)]
+    
+    data$AveTreat1<- rowMeans(data[, Treat1])
+    data$AveTreat2<- rowMeans(data[, Treat2])
+  
+    
+    data <- data %>%
+      mutate(Treat1.sd = apply(data[,Treat1], 1, sd)) %>%
+      mutate(Treat2.sd = apply(data[,Treat2], 1, sd)) %>%
+      mutate(Treat1.percent.sd = ((Treat1.sd/AveTreat1)*100)) %>%
+      mutate(Treat2.percent.sd = ((Treat2.sd/AveTreat2)*100))
+      
+    
+    data$log2ratio <-
+      ifelse(
+        data$AveTreat1 > data$AveTreat2,
+        log2(data$AveTreat1 / data$AveTreat2),
+        ifelse(
+          data$AveTreat1 < data$AveTreat2,
+          -(log2(
+            data$AveTreat2 / data$AveTreat1
+          )),
+          "other"
+        )
+      )
+    
+    #replacing Inf with "5" in order to treat the column as numeric
+    data$log2ratio <- gsub('Inf', '25', data$log2ratio)
+    data$log2ratio <- as.numeric(data$log2ratio)
+    
+    Treatsdf <- data[, c(Treat1,Treat2) ]
+     data$pvalue <- apply(Treatsdf, 1, function(x) {t.test(x[1:3],x[4:6])$p.value})
+     
+     data$pvalue.wt <- apply(Treatsdf, 1, function(x) {wilcox.test(x[1:3],x[4:6], correct=FALSE)$p.value})
+     
+     
+     
+    sig.data <- subset(data, data$pvalue < 0.05)
+    
+    
+    
+   p <- ggplot(sig.data, aes(x = mz, y = log2ratio, color = pvalue)) +
+      geom_point() +
+      scale_color_continuous(low = "red", high = "blue") +
+      labs(title = (paste(Fraction, Experiment, "Normalized to cell and vesicle count", sep = " "))) +
+      theme_classic()
+    
+ print(p)
+ 
+
+setwd(ResultsDIR)
+ write.csv(data, paste(Fraction, "logplotdata", "bionorm", "ISreq", "csv", sep="."))
+save_plot("CyanoDCM_PelletsVsVesicles9313_NormalizedToCellsVesicles.pdf", p,  base_aspect_ratio = 2)
+```
+
+```{r}
+  p <- ggplot(data %>% filter(log2ratio < -1), aes(x = mz, y = RT, size = log2ratio, color = log2ratio)) +
+      geom_point() +
+      scale_color_continuous(low = "red", high = "blue") +
+      labs(title = (paste(Fraction, Experiment, "Normalized to cell and vesicle count", sep = " "))) +
+    scale_size_continuous(range=c(4,2))+
+      theme_classic()
+    
+ print(p)
+ 
+
+# setwd(ResultsDIR)
+#  write.csv(sig.data, paste(Fraction, "logplotdata", "bionorm", "csv", sep="."))
+# save_plot("CyanoDCM_PelletsVsVesicles9313_NormalizedToCellsVesicles.pdf", p,  base_aspect_ratio = 2)
+```
+
+
+#Plot CyanoDCM vesicles and cells normalized to biovolume, IS required
+```{r plot CyanoDCM normalized to biovolume, IS required}
+data <-
+      xset.biovolumenormal
+    
+    Treat1ID <- "Pro9313"
+    Treat2ID <- "Vesicle9313"
+    
+    names <- colnames(data)
+    Samples <- names[grepl("Smp", names)]
+    
+    Treat1 <- Samples[grepl(as.character(Treat1ID), Samples)]
+    Treat2 <- Samples[grepl(as.character(Treat2ID), Samples)]
+    
+    data$AveTreat1<- rowMeans(data[, Treat1])
+    data$AveTreat2<- rowMeans(data[, Treat2])
+    Treat1.sd <- apply(data[,Treat1], 2, sd)
+    # data_test <- data %>% mutate(Treat1.sd = apply(data[,Treat1], 2, sd)) %>% mutate(Treat2.sd = apply(data[,Treat2], 2, sd))
+    
+    data$log2ratio <-
+      ifelse(
+        data$AveTreat1 > data$AveTreat2,
+        log2(data$AveTreat1 / data$AveTreat2),
+        ifelse(
+          data$AveTreat1 < data$AveTreat2,
+          -(log2(
+            data$AveTreat2 / data$AveTreat1
+          )),
+          "other"
+        )
+      )
+    
+    #replacing Inf with "5" in order to treat the column as numeric
+    data$log2ratio <- gsub('Inf', '25', data$log2ratio)
+    data$log2ratio <- as.numeric(data$log2ratio)
+    
+    Treatsdf <- data[, c(Treat1,Treat2) ]
+     data$pvalue <- apply(Treatsdf, 1, function(x) {t.test(x[1:3],x[4:6])$p.value})
+     
+        data$pvalue.wt <- apply(Treatsdf, 1, function(x) {wilcox.test(x[1:3],x[4:6], correct=FALSE)$p.value})
+     
+     
+     
+     
+    sig.data <- subset(data, data$pvalue < 0.05)
+    
+    
+    
+   p <- ggplot(sig.data, aes(x = mz, y = log2ratio, color = pvalue)) +
+      geom_point() +
+      scale_color_continuous(low = "red", high = "blue") +
+      labs(title = (paste(Fraction, Experiment, "Normalized to biovolume", sep = " "))) +
+      theme_classic()
+    
+ print(p)
+ 
+
+setwd(ResultsDIR)
+ write.csv(data, paste(Fraction, "logplotdata", "biovolume","ISreq", "csv", sep="."))
+save_plot("CyanoDCM_PelletsVsVesicles9313_NormalizedToBiovolume.pdf", p,  base_aspect_ratio = 2)
+
+```

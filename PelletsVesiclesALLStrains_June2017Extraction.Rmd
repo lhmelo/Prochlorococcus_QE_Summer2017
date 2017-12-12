@@ -10,7 +10,7 @@ output:
 #Set filepaths
 ```{r Set filepaths}
 
-ExpDIR <- "~/Desktop/MetabolomicsProjects/Prochlorococcus/PelletsVesiclesReExtractionJune2017" #raw data path
+ExpDIR <- "~/Desktop/MetabolomicsProjects/PelletsVesiclesReExtractionJune2017" #raw data path
 functionDIR <- "~/Desktop/MetabolomicsProjects/RScripts" #location of scripts
 #outputpath <- "~/Desktop/MetabolomicsProjects/XCMS/EddyQE141216" #path that files are written to 
 targetcompoundpath <- "~/Desktop/MetabolomicsProjects/RScripts/data" #this is where MRM_Methods_Table.csv is stored
@@ -95,14 +95,51 @@ mfmaker_ttest()
 #done 6-28-17
 ```
 
-#Extract internal standards using skyline, completed 6-05-17
+#Extract internal standards using skyline, completed 7-05-17
 
-#Perform B-MIS
+#Perform B-MIS, completed 07-12-2017
+#Used Script: B-MIS-Normalization_QE_PelletsVesiclesReExtractionJune2017_CyanoDCM_VarInjVol.Rmd
+#Output: BMISed_data_CyanoDCM.xset.filtered.csv
 
 #Run Camera_Function
 ```{r Run CAMERA, include=FALSE}
 #Calculate adducts and isotopes for mass features and calculate neutral mass for ions with two or more adducts
+#
+library(tidyverse)
+library(stringr)
 
+setwd(ExpDIR)
+load("Dirs2017-06-27")
+
+Params <- read.csv("Params.csv",  row.names = 1)
+
+Dirs <- Dirs %>% 
+  mutate(ResultsDIR = ResultsDIR %>%  str_replace("/Prochlorococcus","") ) %>%
+   mutate(DataDIR = DataDIR %>%  str_replace("/Prochlorococcus","") ) %>%
+   mutate(ResultsDIR = ResultsDIR %>%  str_replace("/Prochlorococcus","") ) %>%
+   mutate(FractionDIR = FractionDIR %>%  str_replace("/Prochlorococcus","") )
+  
+row.names(Dirs) <- Dirs[, "FractionList"]
+
+j=1
+Fraction <- FractionList[j]
+    print(Fraction)
+    ResultsDIR <- as.character(Dirs[Fraction, "ResultsDIR"])
+    setwd(ResultsDIR)
+   load(paste(Fraction, "xset3.RData", sep="."))
+   
+   save(xset3, file=paste(Fraction, "xset3", "original", "RData", sep = "."))
+   
+   old_filepaths <- filepaths(xset3) 
+   
+   new_filepaths <- gsub('/Prochlorococcus', '', old_filepaths)
+   
+   filepaths(xset3) <- new_filepaths
+    setwd(ResultsDIR)
+    save(xset3, file=paste(Fraction, "xset3", "RData", sep = "."))
+    
+  
+   
 setwd(functionDIR)
 source("CAMERA.V2.function.R")
 camera (PPM = 5)

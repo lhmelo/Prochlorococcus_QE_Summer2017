@@ -1,5 +1,5 @@
 ---
-title: "B-MIS Normalization QE PelletsVesicles_ReExtractionJune2017_CyanoDCM_VarInjVol"
+title: "B-MIS Normalization QE PelletsVesicles_ReExtractionJune2017_CyanoAq_VarInjVol"
 author: "Angie Boysen"
 date: "Feb 9, 2017"
 output: html_document
@@ -274,6 +274,7 @@ for (i in 2:length(IS.list)){
      }
 }
 #glimpse(area.norm)
+setwd(ResultsDIR)
 write_csv(area.norm, "CyanoAq.area.norm.csv")
 ```
 
@@ -290,6 +291,7 @@ binded <- binded %>% mutate(Run.Cmpd = paste(Replicate.Name, MassFeature))
 
 dat <- full_join(binded, mydata_new)
 #glimpse(dat)
+setwd(ResultsDIR)
 write.csv(dat, paste(Fraction, ".dat.temp.csv", sep=""))
 ```
 
@@ -305,6 +307,7 @@ rsd.stats <- no.blank.dat %>% select(-Replicate.Name,  -Run.Cmpd,
      group_by(MassFeature, type, SampID, Normer) %>%
      summarise(m = mean(Value, na.rm=T), 
                 sd = sd(Value, na.rm=T), rsd = sd/m)
+setwd(ResultsDIR)
 write.csv(rsd.stats, paste(Fraction, ".rsd.stats.csv", sep=""))
 #glimpse(rsd.stats)
 ```
@@ -316,7 +319,7 @@ and one based on the injections of the biological replicates of samples "SmpMode
 # [1] missing in github version of SmpModel code. Won't run without it.
 ```{r newModeMaker}
 
-setwd(ExpDIR)
+setwd(ResultsDIR)
 rsd.stats <-read.csv(paste(Fraction, ".rsd.stats.csv", sep=""), row.names = 1)
 rsd.clean <- rsd.stats %>% filter(!is.na(m))  %>%
      filter(Normer!="Area")
@@ -378,7 +381,7 @@ rsd.total <- rsd.total %>%
 ##Get Actual Normalized data not just the rsds
 Only keep PooPlus (BMIS model)
 ```{r, echo=FALSE}
-setwd(ExpDIR)
+setwd(ResultsDIR)
 dat <- read.csv(paste(Fraction, "dat.temp.csv", sep="."), row.names = 1)
 # 
 # models <- rsd.total %>% ungroup %>%
@@ -423,7 +426,7 @@ dat.join <- dat.join %>%
   mutate(SmpModel.IS = gsub(' ', '.', SmpModel.IS)) %>%
   mutate(PooPlusModel.IS = gsub(' ', '.', PooPlusModel.IS)) 
 
-startime <- Sys.time()
+starttime <- Sys.time()
 
 PooModel <- c()
 SmpModel <-c()
@@ -456,11 +459,14 @@ dat.join <- dat.join %>% unnest(PooModel) %>% unnest(SmpModel) %>%
 glimpse(dat.join)
 
 endtime <- Sys.time()
+totaltime <- endtime - starttime
+print(totaltime)
 ```
 
 ##Write out that full normalized data
 The output of the B-MIS normalized data is in the column named PooPlusModel.
 ```{r, eval=FALSE}
+setwd(ResultsDIR)
 new.filename <- paste("BMISed_data",filename,sep="_")
 write.csv(dat.join, new.filename)
 ```

@@ -364,7 +364,7 @@ rsd.total <- rsd.total %>%
 ##Get Actual Normalized data not just the rsds
 Only keep PooPlus (BMIS model)
 ```{r, echo=FALSE}
-setwd(ExpDIR)
+setwd(ResultsDIR)
 dat <- read.csv(paste(Fraction, "dat.temp.csv", sep=""), row.names = 1)
 # 
 # models <- rsd.total %>% ungroup %>%
@@ -409,7 +409,7 @@ dat.join <- dat.join %>%
   mutate(SmpModel.IS = gsub(' ', '.', SmpModel.IS)) %>%
   mutate(PooPlusModel.IS = gsub(' ', '.', PooPlusModel.IS)) 
 
-startime <- Sys.time()
+starttime <- Sys.time()
 
 PooModel <- c()
 SmpModel <-c()
@@ -442,6 +442,8 @@ dat.join <- dat.join %>% unnest(PooModel) %>% unnest(SmpModel) %>%
 glimpse(dat.join)
 
 endtime <- Sys.time()
+totaltime <- endtime - startime
+print(totaltime)
 ```
 
 ##Write out that full normalized data

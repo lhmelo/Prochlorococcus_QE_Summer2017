@@ -86,6 +86,7 @@ xcmsfunction()
 ```{r, include=FALSE}
 setwd(ExpDIR)
 load("Dirs2017-06-27")
+Dirs[] <- lapply(Dirs, gsub, pattern = "/Prochlorococcus", replacement = "", fixed = TRUE)
 Params <- read.csv("Params.csv",  row.names = 1)
 
 setwd(functionDIR)
@@ -93,11 +94,12 @@ source("mfmaker_VesiclesAndPellets_4Treats.function.R")
 mfmaker_ttest()
 
 #done 6-28-17
+#Rerun 12-12-2017 after updating mfmaker function
 ```
 
 #Extract internal standards using skyline, completed 7-05-17
 
-#Perform B-MIS, completed 07-12-2017
+#RedoB-MIS, completed 12-12-2017
 #Used Script: B-MIS-Normalization_QE_PelletsVesiclesReExtractionJune2017_CyanoDCM_VarInjVol.Rmd
 #Output: BMISed_data_CyanoDCM.xset.filtered.csv
 
